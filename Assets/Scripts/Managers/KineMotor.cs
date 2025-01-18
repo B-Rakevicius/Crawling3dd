@@ -2030,7 +2030,7 @@ public class KineMotor : MonoBehaviour
                 {
                     Debug.Log("noclip thing 4");
                     return false;
-                }
+                }   
             }
         }
         // make noclip check here
