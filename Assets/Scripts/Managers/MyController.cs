@@ -56,7 +56,7 @@ namespace KinematicCharacterController.Walkthrough.NoClipState2
 
         [Header("Misc")]
         public List<Collider> IgnoredColliders = new List<Collider>();
-        public List<Collider> NoClipColliders = new List<Collider>();
+        public List<Collider> NoClipNotCollider = new List<Collider>();
         public bool OrientTowardsGravity = false;
         public Vector3 Gravity = new Vector3(0, -30f, 0);
         public Transform MeshRoot;
@@ -339,9 +339,10 @@ namespace KinematicCharacterController.Walkthrough.NoClipState2
                                 {
                                     // Calculate jump direction before ungrounding
                                     Vector3 jumpDirection = Motor.CharacterUp;
+                                    Vector3 verticality = new Vector3(0, 1.4f, 0);
                                     if (_canWallJump)
                                     {
-                                        jumpDirection = _wallJumpNormal;
+                                        jumpDirection = _wallJumpNormal + verticality;
                                     }
                                     else if (Motor.GroundingStatus.FoundAnyGround && !Motor.GroundingStatus.IsStableOnGround)
                                     {
@@ -456,7 +457,7 @@ namespace KinematicCharacterController.Walkthrough.NoClipState2
         }
         public bool IsColliderValidForCollisions2(Collider coll)
         {
-            if (NoClipColliders.Contains(coll))
+            if (NoClipNotCollider.Contains(coll))
             {
                 return true;
             }
@@ -465,7 +466,7 @@ namespace KinematicCharacterController.Walkthrough.NoClipState2
         public void OnGroundHit(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, ref HitStabilityReport hitStabilityReport)
         {
         }
-
+        
         public void OnMovementHit(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, ref HitStabilityReport hitStabilityReport)
         {
             switch (CurrentCharacterState)
@@ -482,7 +483,30 @@ namespace KinematicCharacterController.Walkthrough.NoClipState2
                     }
             }
         }
-
+        
+        /*
+        public void OnMovementHit(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, ref HitStabilityReport hitStabilityReport)
+        {
+            switch (CurrentCharacterState)
+            {
+                case CharacterState.Default:
+                    {
+                        // We can wall jump only if we are not stable on ground and are moving away from an obstruction
+                        if (AllowWallJump && !Motor.GroundingStatus.IsStableOnGround && !hitStabilityReport.IsStable)
+                        {
+                            // Check if moving away from the wall (dot product > 0)
+                            Vector3 velocity = Motor.BaseVelocity.normalized; // Or use your character's velocity
+                            if (Vector3.Dot(velocity, hitNormal) > 0)
+                            {
+                                _canWallJump = true;
+                                _wallJumpNormal = hitNormal;
+                            }
+                        }
+                        break;
+                    }
+            }
+        }
+        */
         public void AddVelocity(Vector3 velocity)
         {
             switch (CurrentCharacterState)
