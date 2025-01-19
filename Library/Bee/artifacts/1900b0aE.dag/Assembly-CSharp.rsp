@@ -412,6 +412,7 @@
 "Assets/Scripts/Managers/KineCharSystem.cs"
 "Assets/Scripts/Managers/KineMotor.cs"
 "Assets/Scripts/Managers/MyController.cs"
+"Assets/Scripts/Objects/DungeonGen.cs"
 "Assets/Scripts/Objects/DungeonGenerator.cs"
 "Assets/Scripts/Objects/LaserBeamTrap.cs"
 "Assets/Scripts/Objects/PiercingLaserTrap.cs"

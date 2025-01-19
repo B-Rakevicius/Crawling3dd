@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RoomBehaviour : MonoBehaviour
 {
-    public GameObject[] walls; // 0 - Up 1 -Down 2 - Right 3- Left
+    public GameObject[] walls; // 0-Up, 1-Down, 2-Right, 3-Left, 4-Forward, 5-Backward
     public GameObject[] doors;
 
     public void UpdateRoom(bool[] status)
