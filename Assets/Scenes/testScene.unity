@@ -2175,16 +2175,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e243cc434169a8149a8bad43024846e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: {x: 8, y: 8}
+  size: {x: 9, y: 9}
   startPos: 0
   rooms:
-  - room: {fileID: 2286970323240106571, guid: c752277020e01a6478af3e70fe105af5, type: 3}
+  - room: {fileID: 2286970323240106571, guid: 8356d9ead3b20494888d0805b8460819, type: 3}
     minPosition: {x: 0, y: 0}
     maxPosition: {x: 10, y: 10}
+    size: {x: 2, y: 2, z: 1}
+    isLShaped: 0
     obligatory: 0
   - room: {fileID: 2286970323240106571, guid: 0ce5e24fa515dd3418c0ee7afb3d0cad, type: 3}
     minPosition: {x: 0, y: 0}
     maxPosition: {x: 10, y: 10}
+    size: {x: 1, y: 1, z: 1}
+    isLShaped: 0
+    obligatory: 0
+  - room: {fileID: 2286970323240106571, guid: 5f522b6e289942e47b2e037b54a3c045, type: 3}
+    minPosition: {x: 0, y: 0}
+    maxPosition: {x: 10, y: 10}
+    size: {x: 2, y: 2, z: 1}
+    isLShaped: 1
+    obligatory: 0
+  - room: {fileID: 2286970323240106571, guid: c752277020e01a6478af3e70fe105af5, type: 3}
+    minPosition: {x: 0, y: 0}
+    maxPosition: {x: 10, y: 10}
+    size: {x: 3, y: 3, z: 1}
+    isLShaped: 0
     obligatory: 0
   offset: {x: 48, y: 48}
 --- !u!4 &954907781
