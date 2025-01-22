@@ -2171,21 +2171,34 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 954907779}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e243cc434169a8149a8bad43024846e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: {x: 9, y: 9}
+  size: {x: 5, y: 5}
   startPos: 0
   rooms:
+  - room: {fileID: 2286970323240106571, guid: 5f580882d2a3aad4a808f513142a0a16, type: 3}
+    minPosition: {x: 0, y: 0}
+    maxPosition: {x: 10, y: 10}
+    obligatory: 0
+    weight: 10
+    verticalOffsetChange: 0
+  - room: {fileID: 2286970323240106571, guid: 75db5dcdc9d21b346972ba352f760431, type: 3}
+    minPosition: {x: 0, y: 0}
+    maxPosition: {x: 10, y: 10}
+    obligatory: 0
+    weight: 10
+    verticalOffsetChange: 24
   - room: {fileID: 2286970323240106571, guid: 0ce5e24fa515dd3418c0ee7afb3d0cad, type: 3}
     minPosition: {x: 0, y: 0}
     maxPosition: {x: 10, y: 10}
-    size: {x: 3, y: 3, z: 3}
-    isLShaped: 0
     obligatory: 0
+    weight: 10
+    verticalOffsetChange: -24
   offset: {x: 48, y: 48}
+  SeedforSeed: 12345
 --- !u!4 &954907781
 Transform:
   m_ObjectHideFlags: 0
@@ -2208,7 +2221,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 954907779}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 755346c7921ebe54a98bbb941fce9b42, type: 3}
   m_Name: 

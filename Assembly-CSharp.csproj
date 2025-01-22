@@ -85,6 +85,7 @@
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\16- FramePerfect Rotation\Scripts\MyCharacterController.cs" />
     <Compile Include="Assets\KinematicCharacterController\ExampleCharacter\Scripts\ExampleCharacterController.cs" />
     <Compile Include="Assets\KinematicCharacterController\Examples\Scripts\PlayableMover.cs" />
+    <Compile Include="Assets\Scripts\Managers\RoomDecorator.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\5- Adding velocities and impulses\Scripts\MyPlayer.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\9- Custom collision filtering\Scripts\MyCharacterController.cs" />
     <Compile Include="Assets\KinematicCharacterController\Examples\Scripts\PrefabLauncher.cs" />
@@ -847,4 +848,20 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <!--This section is added by Unity Code Assist-->
+  <ItemGroup>
+    <Analyzer Include="C:\Users\Lolita\Desktop\Crawling3dd\Packages\com.merry-yellow.code-assist\Editor\ExternalReferences\Meryel.UnityCodeAssist.AnalyzersLite.dll" />
+    <Analyzer Include="C:\Users\Lolita\Desktop\Crawling3dd\Packages\com.merry-yellow.code-assist\Editor\ExternalReferences\Meryel.UnityCodeAssist.Common.dll" />
+    <Analyzer Include="C:\Users\Lolita\Desktop\Crawling3dd\Packages\com.merry-yellow.code-assist\Editor\ExternalReferences\Meryel.UnityCodeAssist.Completion.dll" />
+    <Analyzer Include="C:\Users\Lolita\Desktop\Crawling3dd\Packages\com.merry-yellow.code-assist\Editor\ExternalReferences\Meryel.UnityCodeAssist.CompletionInternals.dll" />
+    <Analyzer Include="C:\Users\Lolita\Desktop\Crawling3dd\Packages\com.merry-yellow.code-assist\Editor\ExternalReferences\Meryel.UnityCodeAssist.Logger.dll" />
+    <Analyzer Include="C:\Users\Lolita\Desktop\Crawling3dd\Packages\com.merry-yellow.code-assist\Editor\ExternalReferences\Meryel.UnityCodeAssist.MQTTnet.dll" />
+    <Analyzer Include="C:\Users\Lolita\Desktop\Crawling3dd\Packages\com.merry-yellow.code-assist\Editor\ExternalReferences\Meryel.UnityCodeAssist.MQTTnet.Extensions.ManagedClient.dll" />
+    <Analyzer Include="C:\Users\Lolita\Desktop\Crawling3dd\Packages\com.merry-yellow.code-assist\Editor\ExternalReferences\Meryel.UnityCodeAssist.Newtonsoft.Json.dll" />
+    <Analyzer Include="C:\Users\Lolita\Desktop\Crawling3dd\Packages\com.merry-yellow.code-assist\Editor\ExternalReferences\Meryel.UnityCodeAssist.ProjectData.dll" />
+    <Analyzer Include="C:\Users\Lolita\Desktop\Crawling3dd\Packages\com.merry-yellow.code-assist\Editor\ExternalReferences\Meryel.UnityCodeAssist.RoslynAnalyzerManager.dll" />
+    <Analyzer Include="C:\Users\Lolita\Desktop\Crawling3dd\Packages\com.merry-yellow.code-assist\Editor\ExternalReferences\Meryel.UnityCodeAssist.Synchronizer.dll" />
+    <Analyzer Include="C:\Users\Lolita\Desktop\Crawling3dd\Packages\com.merry-yellow.code-assist\Editor\ExternalReferences\Meryel.UnityCodeAssist.SynchronizerModel.dll" />
+    <Analyzer Include="C:\Users\Lolita\Desktop\Crawling3dd\Packages\com.merry-yellow.code-assist\Editor\ExternalReferences\Meryel.UnityCodeAssist.VSIXLibrary.dll" />
+  </ItemGroup>
 </Project>

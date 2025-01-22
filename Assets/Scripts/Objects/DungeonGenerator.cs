@@ -7,10 +7,7 @@ public class DungeonGenerator : MonoBehaviour
     public class Cell
     {
         public bool visited = false;
-        public bool isPartOfRoom = false;
         public bool[] status = new bool[4];
-        public bool isBlocked = false;
-        public Vector2Int parentCell = Vector2Int.zero;
     }
 
     [System.Serializable]
@@ -19,296 +16,134 @@ public class DungeonGenerator : MonoBehaviour
         public GameObject room;
         public Vector2Int minPosition;
         public Vector2Int maxPosition;
-        public Vector3Int size = Vector3Int.one;
-        public bool isLShaped = false;
         public bool obligatory;
+        public int weight;
+        public float verticalOffsetChange;
 
         public int ProbabilityOfSpawning(int x, int y)
         {
-            // 0 - cannot spawn 1 - can spawn 2 - HAS to spawn
-
-            if (x>= minPosition.x && x<=maxPosition.x && y >= minPosition.y && y <= maxPosition.y)
+            if (x >= minPosition.x && x <= maxPosition.x && y >= minPosition.y && y <= maxPosition.y)
             {
                 return obligatory ? 2 : 1;
             }
-
             return 0;
         }
-
     }
 
     public Vector2Int size;
     public int startPos = 0;
     public Rule[] rooms;
     public Vector2 offset;
+    public int SeedforSeed = 12345;
 
-    List<Cell> board;
+    private List<Cell> board;
+    private bool isGenerated = false; // Flag to ensure generation happens only once
 
-    // Start is called before the first frame update
     void Start()
     {
-        InitializeBoard();
-        //BlockCells();
-        EnsureConnectivity();
-        GenerateDungeon();
-        //MazeGenerator();
-    }
-    void InitializeBoard()
-    {
-        board = new List<Cell>();
-
-        for (int i = 0; i < size.x; i++)
+        if (!isGenerated)
         {
-            for (int j = 0; j < size.y; j++)
-            {
-                board.Add(new Cell());
-            }
+            Random.InitState(SeedforSeed); // Fixed seed for deterministic generation
+            MazeGenerator();
+            isGenerated = true; // Mark generation as complete
         }
-    }
-    void BlockCells()
-    {
-        int totalCells = size.x * size.y;
-        int maxBlockedCells = (int)(totalCells * 0.3f); // No more than 20% of cells blocked
-        int blockedCount = 0;
-
-        for (int i = 0; i < size.x; i++)
-        {
-            for (int j = 0; j < size.y; j++)
-            {
-                Cell cell = board[i + j * size.x];
-
-
-                // Block corners by default
-                if ((i == 0 && j == 0) || (i == 0 && j == size.y - 1) || (i == size.x - 1 && j == 0) || (i == size.x - 1 && j == size.y - 1))
-                {
-                    cell.isBlocked = true;
-                    blockedCount++;
-                    continue;
-                }
-
-                // Block edges (70% chance)
-                if (i == 0 || j == 0 || i == size.x - 1 || j == size.y - 1)
-                {
-                    if (Random.value < 0.2f && blockedCount < maxBlockedCells)
-                    {
-                        cell.isBlocked = true;
-                        blockedCount++;
-                    }
-                    continue;
-                }
-
-                // Randomly block other cells (10% chance)
-                if (Random.value < 0.2f && blockedCount < maxBlockedCells)
-                {
-                    cell.isBlocked = true;
-                    blockedCount++;
-                }
-                
-            }
-        }
-    }
-
-    void EnsureConnectivity()
-    {
-        // Perform a flood-fill to find all connected cells
-        HashSet<int> connectedCells = new HashSet<int>();
-        Queue<int> toVisit = new Queue<int>();
-
-        // Start flood-fill from the first unblocked cell
-        for (int i = 0; i < board.Count; i++)
-        {
-            if (!board[i].isBlocked)
-            {
-                toVisit.Enqueue(i);
-                break;
-            }
-        }
-
-        while (toVisit.Count > 0)
-        {
-            int current = toVisit.Dequeue();
-            if (connectedCells.Contains(current) || board[current].isBlocked)
-                continue;
-
-            connectedCells.Add(current);
-
-            // Add neighbors to the queue
-            foreach (int neighbor in GetNeighbors(current))
-            {
-                if (!connectedCells.Contains(neighbor) && !board[neighbor].isBlocked)
-                {
-                    toVisit.Enqueue(neighbor);
-                }
-            }
-        }
-        /*
-        // Block any cells not in the connected set
-        for (int i = 0; i < board.Count; i++)
-        {
-            if (!connectedCells.Contains(i))
-            {
-                board[i].isBlocked = true;
-            }
-        }
-        */
-    }
-
-    List<int> GetNeighbors(int cellIndex)
-    {
-        List<int> neighbors = new List<int>();
-
-        int x = cellIndex % size.x;
-        int y = cellIndex / size.x;
-
-        // Check up, down, left, right
-        if (y > 0) neighbors.Add(cellIndex - size.x);      // Up
-        if (y < size.y - 1) neighbors.Add(cellIndex + size.x); // Down
-        if (x > 0) neighbors.Add(cellIndex - 1);          // Left
-        if (x < size.x - 1) neighbors.Add(cellIndex + 1);     // Right
-
-        return neighbors;
     }
 
     void GenerateDungeon()
     {
-        for (int i = 0; i < size.x; i++)
+        Queue<Vector2Int> roomQueue = new Queue<Vector2Int>();
+        HashSet<Vector2Int> visitedRooms = new HashSet<Vector2Int>();
+
+        float[,] verticalOffsets = new float[size.x, size.y];
+        roomQueue.Enqueue(new Vector2Int(startPos % size.x, startPos / size.x));
+        visitedRooms.Add(new Vector2Int(startPos % size.x, startPos / size.x));
+
+        while (roomQueue.Count > 0)
         {
-            for (int j = 0; j < size.y; j++)
+            Vector2Int currentRoom = roomQueue.Dequeue();
+            int i = currentRoom.x;
+            int j = currentRoom.y;
+            Cell currentCell = board[i + j * size.x];
+
+            Rule selectedRoom = SelectRoomUsingWeights(i, j);
+
+            var newRoom = Instantiate(
+                selectedRoom.room,
+                new Vector3(i * offset.x, verticalOffsets[i, j], -j * offset.y),
+                Quaternion.identity,
+                transform
+            ).GetComponent<RoomBehaviour>();
+
+            newRoom.UpdateRoom(currentCell.status);
+            newRoom.name += " " + i + "-" + j;
+
+            RoomDecorator decorator = newRoom.GetComponent<RoomDecorator>();
+            if (decorator != null)
             {
-                Cell currentCell = board[i + j * size.x];
-                if (currentCell.isBlocked || currentCell.isPartOfRoom)
-                    continue;
+                decorator.Initialize(SeedforSeed + i + j * size.x); // Unique seed for each room
+            }
 
-                int randomRoom = -1;
-                List<int> availableRooms = new List<int>();
-
-                for (int k = 0; k < rooms.Length; k++)
+            for (int dir = 0; dir < 4; dir++)
+            {
+                if (currentCell.status[dir])
                 {
-                    int p = rooms[k].ProbabilityOfSpawning(i, j);
-
-                    if (p == 2)
+                    Vector2Int neighbor = GetNeighbor(currentRoom, dir);
+                    if (!visitedRooms.Contains(neighbor))
                     {
-                        randomRoom = k;
-                        break;
+                        visitedRooms.Add(neighbor);
+                        roomQueue.Enqueue(neighbor);
+                        verticalOffsets[neighbor.x, neighbor.y] = verticalOffsets[i, j] + selectedRoom.verticalOffsetChange;
                     }
-                    else if (p == 1)
-                    {
-                        availableRooms.Add(k);
-                    }
-                }
-
-                if (randomRoom == -1)
-                {
-                    if (availableRooms.Count > 0)
-                    {
-                        randomRoom = availableRooms[Random.Range(0, availableRooms.Count)];
-                    }
-                    else
-                    {
-                        randomRoom = 0;
-                    }
-                }
-
-                Rule selectedRoom = rooms[randomRoom];
-
-                // Check if the room can fit here
-                if (CanPlaceRoom(i, j, selectedRoom))
-                {
-                    PlaceRoom(i, j, selectedRoom);
                 }
             }
         }
     }
 
-    bool CanPlaceRoom(int x, int y, Rule room)
+    Rule SelectRoomUsingWeights(int x, int y)
     {
-        for (int dx = 0; dx < room.size.x; dx++)
+        List<int> cumulativeWeights = new List<int>();
+        List<int> validRoomIndices = new List<int>();
+        int totalWeight = 0;
+
+        for (int k = 0; k < rooms.Length; k++)
         {
-            for (int dy = 0; dy < room.size.y; dy++)
+            int spawnProbability = rooms[k].ProbabilityOfSpawning(x, y);
+
+            if (spawnProbability > 0)
             {
-                int targetX = x + dx;
-                int targetY = y + dy;
-
-                if (targetX >= size.x || targetY >= size.y)
-                    return false;
-
-                if (board[targetX + targetY * size.x].visited || board[targetX + targetY * size.x].isBlocked || board[targetX + targetY * size.x].isPartOfRoom)
-                    return false;
+                validRoomIndices.Add(k);
+                totalWeight += rooms[k].weight;
+                cumulativeWeights.Add(totalWeight);
             }
         }
-        return true;
+
+        if (validRoomIndices.Count == 0)
+        {
+            return rooms[0];
+        }
+
+        int randomValue = Random.Range(0, totalWeight);
+        for (int i = 0; i < cumulativeWeights.Count; i++)
+        {
+            if (randomValue < cumulativeWeights[i])
+            {
+                return rooms[validRoomIndices[i]];
+            }
+        }
+
+        return rooms[validRoomIndices[0]];
     }
 
-    void PlaceRoom(int x, int y, Rule room)
+    Vector2Int GetNeighbor(Vector2Int current, int direction)
     {
-        for (int dx = 0; dx < room.size.x; dx++)
+        switch (direction)
         {
-            for (int dy = 0; dy < room.size.y; dy++)
-            {
-                int targetX = x + dx;
-                int targetY = y + dy;
-                Cell cell = board[targetX + targetY * size.x];
-
-                cell.visited = true;
-                cell.isPartOfRoom = true;
-                cell.parentCell = new Vector2Int(x, y);
-            }
+            case 0: return new Vector2Int(current.x, current.y - 1); // Up
+            case 1: return new Vector2Int(current.x, current.y + 1); // Down
+            case 2: return new Vector2Int(current.x + 1, current.y); // Right
+            case 3: return new Vector2Int(current.x - 1, current.y); // Left
+            default: return current;
         }
-
-        Vector3 roomPosition = new Vector3(x * offset.x, 0, -y * offset.y);
-        GameObject newRoom = Instantiate(room.room, roomPosition, Quaternion.identity, transform);
-        //newRoom.transform.localScale = new Vector3(1, 1, 1);
-        newRoom.name += $" {x}-{y}";
-    }
-    void GenerateDungeonOld()
-    {
-
-        for (int i = 0; i < size.x; i++)
-        {
-            for (int j = 0; j < size.y; j++)
-            {
-                Cell currentCell = board[(i + j * size.x)];
-                if (currentCell.visited)
-                {
-                    int randomRoom = -1;
-                    List<int> availableRooms = new List<int>();
-
-                    for (int k = 0; k < rooms.Length; k++)
-                    {
-                        int p = rooms[k].ProbabilityOfSpawning(i, j);
-
-                        if(p == 2)
-                        {
-                            randomRoom = k;
-                            break;
-                        } else if (p == 1)
-                        {
-                            availableRooms.Add(k);
-                        }
-                    }
-
-                    if(randomRoom == -1)
-                    {
-                        if (availableRooms.Count > 0)
-                        {
-                            randomRoom = availableRooms[Random.Range(0, availableRooms.Count)];
-                        }
-                        else
-                        {
-                            randomRoom = 0;
-                        }
-                    }
-
-
-                    var newRoom = Instantiate(rooms[randomRoom].room, new Vector3(i * offset.x, 0, -j * offset.y), Quaternion.identity, transform).GetComponent<RoomBehaviour>();
-                    //var newRoom = Instantiate(rooms[randomRoom].room, new Vector3(i * offset.x, 0, -j * offset.y), Quaternion.identity, transform).GetComponent<RoomBehaviour>();
-                    //newRoom.UpdateRoom(currentCell.status);
-                    newRoom.name += " " + i + "-" + j;
-
-                }
-            }
-        }
-
     }
 
     void MazeGenerator()
@@ -324,23 +159,14 @@ public class DungeonGenerator : MonoBehaviour
         }
 
         int currentCell = startPos;
-
         Stack<int> path = new Stack<int>();
-
         int k = 0;
 
-        while (k<1000)
+        while (k < 1000)
         {
             k++;
-
             board[currentCell].visited = true;
 
-            if(currentCell == board.Count - 1)
-            {
-                break;
-            }
-
-            //Check the cell's neighbors
             List<int> neighbors = CheckNeighbors(currentCell);
 
             if (neighbors.Count == 0)
@@ -358,73 +184,71 @@ public class DungeonGenerator : MonoBehaviour
             {
                 path.Push(currentCell);
 
+                if (Random.value < 0.9f && path.Count > 1)
+                {
+                    currentCell = path.Pop();
+                }
+
                 int newCell = neighbors[Random.Range(0, neighbors.Count)];
 
                 if (newCell > currentCell)
                 {
-                    //down or right
                     if (newCell - 1 == currentCell)
                     {
-                        board[currentCell].status[2] = true;
+                        board[currentCell].status[2] = true; // Right
                         currentCell = newCell;
-                        board[currentCell].status[3] = true;
+                        board[currentCell].status[3] = true; // Left
                     }
                     else
                     {
-                        board[currentCell].status[1] = true;
+                        board[currentCell].status[1] = true; // Down
                         currentCell = newCell;
-                        board[currentCell].status[0] = true;
+                        board[currentCell].status[0] = true; // Up
                     }
                 }
                 else
                 {
-                    //up or left
                     if (newCell + 1 == currentCell)
                     {
-                        board[currentCell].status[3] = true;
+                        board[currentCell].status[3] = true; // Left
                         currentCell = newCell;
-                        board[currentCell].status[2] = true;
+                        board[currentCell].status[2] = true; // Right
                     }
                     else
                     {
-                        board[currentCell].status[0] = true;
+                        board[currentCell].status[0] = true; // Up
                         currentCell = newCell;
-                        board[currentCell].status[1] = true;
+                        board[currentCell].status[1] = true; // Down
                     }
                 }
-
             }
-
         }
-        GenerateDungeonOld();
+
+        GenerateDungeon();
     }
 
     List<int> CheckNeighbors(int cell)
     {
         List<int> neighbors = new List<int>();
 
-        //check up neighbor
-        if (cell - size.x >= 0 && !board[(cell-size.x)].visited)
+        if (cell - size.x >= 0 && !board[(cell - size.x)].visited)
         {
             neighbors.Add((cell - size.x));
         }
 
-        //check down neighbor
         if (cell + size.x < board.Count && !board[(cell + size.x)].visited)
         {
             neighbors.Add((cell + size.x));
         }
 
-        //check right neighbor
-        if ((cell+1) % size.x != 0 && !board[(cell +1)].visited)
+        if ((cell + 1) % size.x != 0 && !board[(cell + 1)].visited)
         {
-            neighbors.Add((cell +1));
+            neighbors.Add((cell + 1));
         }
 
-        //check left neighbor
         if (cell % size.x != 0 && !board[(cell - 1)].visited)
         {
-            neighbors.Add((cell -1));
+            neighbors.Add((cell - 1));
         }
 
         return neighbors;
