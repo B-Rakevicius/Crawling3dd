@@ -118,6 +118,7 @@
 -define:ENABLE_TIMELINE
 -define:ENABLE_LEGACY_INPUT_MANAGER
 -define:TEXTCORE_FONT_ENGINE_1_5_OR_NEWER
+-define:UNITY_POST_PROCESSING_STACK_V2
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
 -r:"C:/Program Files/Unity/Hub/Editor/2022.3.2f1/Editor/Data/Managed/UnityEngine/UnityEditor.CoreModule.dll"
@@ -330,6 +331,8 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.EditorCoroutines.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Performance.Profile-Analyzer.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.PlasticSCM.Editor.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Postprocessing.Editor.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Postprocessing.Runtime.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Rider.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.ref.dll"
@@ -352,6 +355,10 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.2f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.2f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
+"Assets/Common/Drawing/BaseRenderer.cs"
+"Assets/Common/Drawing/NormalRenderer.cs"
+"Assets/Common/Drawing/SegmentRenderer.cs"
+"Assets/Common/Drawing/VextexRenderer.cs"
 "Assets/KinematicCharacterController/Core/ICharacterController.cs"
 "Assets/KinematicCharacterController/Core/IMoverController.cs"
 "Assets/KinematicCharacterController/Core/KCCSettings.cs"
@@ -409,6 +416,16 @@
 "Assets/KinematicCharacterController/Walkthrough/8- Creating a moving platform/Scripts/MyPlayer.cs"
 "Assets/KinematicCharacterController/Walkthrough/9- Custom collision filtering/Scripts/MyCharacterController.cs"
 "Assets/KinematicCharacterController/Walkthrough/9- Custom collision filtering/Scripts/MyPlayer.cs"
+"Assets/ProceduralNoise/Example.cs"
+"Assets/ProceduralNoise/Noise/FractalNoise.cs"
+"Assets/ProceduralNoise/Noise/INoise.cs"
+"Assets/ProceduralNoise/Noise/Noise.cs"
+"Assets/ProceduralNoise/Noise/PerlinNoise.cs"
+"Assets/ProceduralNoise/Noise/PermutationTable.cs"
+"Assets/ProceduralNoise/Noise/SimplexNoise.cs"
+"Assets/ProceduralNoise/Noise/ValueNoise.cs"
+"Assets/ProceduralNoise/Noise/VoronoiNoise.cs"
+"Assets/ProceduralNoise/Noise/WorleyNoise.cs"
 "Assets/Scripts/Managers/KineCharSystem.cs"
 "Assets/Scripts/Managers/KineMotor.cs"
 "Assets/Scripts/Managers/MyController.cs"
@@ -424,6 +441,14 @@
 "Assets/Scripts/Objects/SummonCircle.cs"
 "Assets/Scripts/Objects/Trap.cs"
 "Assets/Scripts/Objects/WallCollision.cs"
+"Assets/Scripts/Objects/wordlgen/cellGen.cs"
+"Assets/Scripts/Objects/wordlgen/cubeTerrainGen.cs"
+"Assets/Scripts/Objects/wordlgen/Example.cs"
+"Assets/Scripts/Objects/wordlgen/Marching.cs"
+"Assets/Scripts/Objects/wordlgen/MarchingCubes.cs"
+"Assets/Scripts/Objects/wordlgen/MarchingTertahedron.cs"
+"Assets/Scripts/Objects/wordlgen/VoxelArray.cs"
+"Assets/Scripts/Objects/wordlgen/WorldGenerator.cs"
 "Assets/Scripts/Players/Character.cs"
 "Assets/Scripts/Players/Ghost.cs"
 "Assets/Scripts/Players/Hero.cs"
@@ -438,6 +463,10 @@
 "Assets/Scripts/Players/Weapons/Spell.cs"
 "Assets/Scripts/Players/Weapons/Sword.cs"
 "Assets/Scripts/Players/Weapons/Weapon.cs"
+"Assets/Scripts/UI/PlayerStyleManager.cs"
+"Assets/Scripts/UI/PostProcessingSwitcher.cs"
+"Assets/Scripts/UI/StyleSwitcher.cs"
+"Assets/Scripts/UI/StyleTransition.cs"
 -langversion:9.0
 
 /deterministic

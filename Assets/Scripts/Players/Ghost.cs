@@ -11,11 +11,6 @@ public class Ghost : Character
     {
         base.Start();
         // Initialize MonsterRoster or load it dynamically
-
-        // add test monsters
-        MonsterRoster.Add(Resources.Load<Monster>("BruteMonster"));
-        MonsterRoster.Add(Resources.Load<Monster>("AgileHunter"));
-        MonsterRoster.Add(Resources.Load<Monster>("FireElemental"));
     }
     // Possess a trap if it's inactive
     public void PossessTrap(Trap trap)

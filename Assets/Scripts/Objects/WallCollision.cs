@@ -7,7 +7,9 @@ public class WallCollision : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, .01f);
+        //Collider[] colliders = Physics.OverlapCapsule(this.gameObject.transform.,this.transform.TransformVector,0.01f);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 0.01f);
+        //Collider[] colliders = Physics.OverlapBox(transform.position, new Vector3(-0.1f,-0.1f,-0.1f));
 
         int wallCount = 0;
         GameObject otherWall = null;
@@ -17,14 +19,12 @@ public class WallCollision : MonoBehaviour
             if (collider.tag == "Wall" && collider.gameObject != this.gameObject)
             {
                 wallCount++;
-                otherWall = collider.gameObject; // Store the other wall
+                otherWall = collider.gameObject;
             }
         }
-
-        // If there are at least two walls (including this one), destroy the other wall
-        if (wallCount >= 1) // Since we're excluding this wall, wallCount >= 1 means there's another wall
+        if (wallCount >= 1)
         {
-            Destroy(otherWall); // Destroy the other wall
+            //Destroy(otherWall);
         }
 
         GetComponent<Collider>().enabled = true;
