@@ -159,6 +159,7 @@
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\14- Climbing Ladders\Scripts\MyLadder.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\13- Swimming state\Scripts\MyCharacterController.cs" />
     <Compile Include="Assets\KinematicCharacterController\ExampleCharacter\Scripts\ExamplePlayer.cs" />
+    <Compile Include="Assets\Scripts\Objects\wordlgen\WaterPlaneFollow.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\1- Player Camera Character Setup\Scripts\MyCharacterController.cs" />
     <Compile Include="Assets\Scripts\Objects\Trap.cs" />
     <Compile Include="Assets\Scripts\Managers\MyController.cs" />
@@ -167,6 +168,7 @@
     <Compile Include="Assets\Scripts\Objects\wordlgen\MarchingCubes.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\11- Charging state\Scripts\MyCharacterController.cs" />
     <Compile Include="Assets\KinematicCharacterController\Core\KinematicCharacterSystem.cs" />
+    <Compile Include="Assets\Scripts\Players\tempMiner.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\3- Jumping\Scripts\c- Wall Jumping\MyPlayer.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\8- Creating a moving platform\Scripts\MyMovingPlatform.cs" />
     <Compile Include="Assets\Scripts\Objects\wordlgen\Marching.cs" />
