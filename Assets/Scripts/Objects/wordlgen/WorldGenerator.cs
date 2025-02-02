@@ -39,8 +39,8 @@ public class WorldGenerator : MonoBehaviour
             lastPlayerChunk = currentChunk;
             UpdateChunks();
         }
-        UpdateLOD();
-
+        //UpdateLOD();
+        /*
         if (Input.GetMouseButton(0)) // Left-click to mine
         {
             Debug.Log("mining or something");
@@ -55,6 +55,7 @@ public class WorldGenerator : MonoBehaviour
             //ModifyTerrain(localPosition, 3f, -1f);
             chunk.ModifyVoxel(localPosition, 3.0f, -2.0f); // Negative value for digging
         }
+        */
     }
     private Vector3 GetMouseWorldPosition()
     {
@@ -113,7 +114,7 @@ public class WorldGenerator : MonoBehaviour
         {
             if (Vector2Int.Distance(chunkCoord, playerChunk) > viewDistance)
             {
-                chunksToRemove.Add(chunkCoord);
+                //chunksToRemove.Add(chunkCoord);
             }
         }
 
@@ -344,6 +345,8 @@ public class Chunk : MonoBehaviour
         if (meshObject == null)
         {
             meshObject = new GameObject("Mesh");
+            meshObject.tag = "Ground";
+            meshObject.layer = 7;
             meshObject.transform.parent = transform;
             meshObject.AddComponent<MeshFilter>();
             meshObject.AddComponent<MeshRenderer>();
@@ -444,8 +447,11 @@ public class Chunk : MonoBehaviour
             GameObject meshObject = new GameObject("Mesh");
             meshObject.transform.parent = transform;
             meshObject.transform.localPosition = new Vector3(0, 0, 0);
+            meshObject.tag = "Ground";
+            meshObject.layer = 7;
             //meshObject.transform.position = new Vector3(chunkCoord.x * chunkSize, 0, chunkCoord.y * chunkSize);
             //meshObject.transform.position = transform.position;
+
             meshObject.AddComponent<MeshFilter>();
             meshObject.AddComponent<MeshRenderer>();
             meshObject.AddComponent<MeshCollider>();

@@ -83,6 +83,7 @@
     <Compile Include="Assets\Scripts\Objects\wordlgen\cellGen.cs" />
     <Compile Include="Assets\Scripts\Objects\wordlgen\cubeTerrainGen.cs" />
     <Compile Include="Assets\Scripts\Players\Weapons\Spell.cs" />
+    <Compile Include="Assets\Scripts\Players\PlayerCombat.cs" />
     <Compile Include="Assets\ProceduralNoise\Noise\FractalNoise.cs" />
     <Compile Include="Assets\Scripts\Objects\ProjectileLaserTrap.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\5- Adding velocities and impulses\Scripts\MyCharacterController.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="Assets\Scripts\Objects\SummonCircle.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\16- FramePerfect Rotation\Scripts\MyPlayer.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\14- Climbing Ladders\Scripts\MyPlayer.cs" />
+    <Compile Include="Assets\Scripts\Players\Monsters\MonsterSpawner.cs" />
     <Compile Include="Assets\KinematicCharacterController\Examples\Scripts\ExampleMovingPlatform.cs" />
     <Compile Include="Assets\KinematicCharacterController\Core\KinematicCharacterMotor.cs" />
     <Compile Include="Assets\Scripts\UI\PlayerStyleManager.cs" />
@@ -102,6 +104,7 @@
     <Compile Include="Assets\Scripts\Managers\RoomDecorator.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\5- Adding velocities and impulses\Scripts\MyPlayer.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\9- Custom collision filtering\Scripts\MyCharacterController.cs" />
+    <Compile Include="Assets\Scripts\Players\Monsters\EnemyAI.cs" />
     <Compile Include="Assets\KinematicCharacterController\Examples\Scripts\PrefabLauncher.cs" />
     <Compile Include="Assets\Scripts\Players\Character.cs" />
     <Compile Include="Assets\Common\Drawing\NormalRenderer.cs" />
@@ -117,6 +120,7 @@
     <Compile Include="Assets\Scripts\Managers\KineCharSystem.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\2- Basic Movement and Gravity\Scripts\MyCharacterController.cs" />
     <Compile Include="Assets\ProceduralNoise\Noise\ValueNoise.cs" />
+    <Compile Include="Assets\Scripts\Players\Monsters\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\Objects\PiercingLaserTrap.cs" />
     <Compile Include="Assets\KinematicCharacterController\Examples\Scripts\Teleporter.cs" />
     <Compile Include="Assets\Scripts\Players\Monsters\AgileHunter.cs" />
@@ -125,17 +129,21 @@
     <Compile Include="Assets\Scripts\Players\Player.cs" />
     <Compile Include="Assets\ProceduralNoise\Noise\VoronoiNoise.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\3- Jumping\Scripts\c- Wall Jumping\MyCharacterController.cs" />
+    <Compile Include="Assets\Scripts\Players\Weapons\Attacks\AreaAttack.cs" />
     <Compile Include="Assets\Scripts\Objects\WallCollision.cs" />
     <Compile Include="Assets\KinematicCharacterController\Core\KCCSettings.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\8- Creating a moving platform\Scripts\MyPlayer.cs" />
     <Compile Include="Assets\Scripts\Players\Weapons\ShieldSpell.cs" />
     <Compile Include="Assets\KinematicCharacterController\Core\IMoverController.cs" />
+    <Compile Include="Assets\Scripts\Players\Weapons\Attacks\MeleeAttack.cs" />
     <Compile Include="Assets\KinematicCharacterController\Examples\Scripts\ExampleAIController.cs" />
+    <Compile Include="Assets\Scripts\Managers\ItemManager.cs" />
     <Compile Include="Assets\Scripts\Players\Weapons\Sword.cs" />
     <Compile Include="Assets\Scripts\Managers\KineMotor.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\7- Orienting towards arbitrary up direction\Scripts\MyCharacterController.cs" />
     <Compile Include="Assets\Scripts\Objects\wordlgen\WorldGenerator.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\3- Jumping\Scripts\b- Double Jumping\MyCharacterController.cs" />
+    <Compile Include="Assets\Scripts\Players\Weapons\Attacks\Projectile.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\10- Multiple movement states setup\Scripts\MyPlayer.cs" />
     <Compile Include="Assets\Scripts\UI\StyleSwitcher.cs" />
     <Compile Include="Assets\Scripts\Players\Ghost.cs" />
@@ -798,41 +806,14 @@
     <Reference Include="System.Xml.Serialization">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.2f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Timeline">
-      <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
-      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.EditorCoroutines.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Performance.Profile-Analyzer.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.TestTools.CodeCoverage.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
-      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.PlasticSCM.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Postprocessing.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.State.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
+    <Reference Include="Unity.AI.Navigation">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
@@ -843,17 +824,14 @@
     <Reference Include="Unity.VisualStudio.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Core">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.UI">
-      <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Core.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
@@ -861,17 +839,59 @@
     <Reference Include="Unity.Rider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.State">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VSCode.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.VisualScripting.Flow">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline">
+      <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
+      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Performance.Profile-Analyzer.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TestTools.CodeCoverage.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
+      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.PlasticSCM.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.AI.Navigation.Updater">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Updater.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Postprocessing.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.State.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.AI.Navigation.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.State">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.AI.Navigation.Editor.ConversionSystem">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VSCode.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

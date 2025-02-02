@@ -2018,17 +2018,17 @@ public class KineMotor : MonoBehaviour
         {
             return false;
         }
-        Debug.Log("noclip thing 1");
+        //Debug.Log("noclip thing 1");
         if (makeshiftController.CurrentCharacterState.Equals(CharacterState.NoClip)) 
         {
-            Debug.Log("noclip thing 2");
+            //Debug.Log("noclip thing 2");
             if (CharacterController.IsColliderValidForCollisions2(coll))
             {
-                Debug.Log("noclip thing 3");
+                //Debug.Log("noclip thing 3");
                 colliderValid = CharacterController.IsColliderValidForCollisions2(coll);
                 if (colliderValid)
                 {
-                    Debug.Log("noclip thing 4");
+                    //Debug.Log("noclip thing 4");
                     return false;
                 }   
             }
