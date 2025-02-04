@@ -441,6 +441,7 @@
 "Assets/Scripts/Objects/PiercingLaserTrap.cs"
 "Assets/Scripts/Objects/ProjectileLaserTrap.cs"
 "Assets/Scripts/Objects/RoomBehaviour.cs"
+"Assets/Scripts/Objects/SafeZone.cs"
 "Assets/Scripts/Objects/SawTrap.cs"
 "Assets/Scripts/Objects/SlowProjectileLaserTrap.cs"
 "Assets/Scripts/Objects/SummonCircle.cs"

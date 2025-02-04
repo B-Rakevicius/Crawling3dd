@@ -278,7 +278,7 @@ public class Chunk : MonoBehaviour
         int adjustedHeight = height + heightOffset;
 
         INoise perlin = new PerlinNoise(seed, 1.0f);
-        FractalNoise fractal = new FractalNoise(perlin, 3, 1.5f); // Increased amplitude for higher variation
+        FractalNoise fractal = new FractalNoise(perlin, 8, 4.5f); // Increased amplitude for higher variation
         FractalNoise riverNoise = new FractalNoise(new PerlinNoise(seed + 1, 1.0f), 2, 1.0f); // Separate noise for rivers
 
         marching = mode == MARCHING_MODE.TETRAHEDRON ? (Marching)new MarchingTertrahedron() : new MarchingCubes();

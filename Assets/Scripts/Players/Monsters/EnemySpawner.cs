@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -6,10 +7,18 @@ public class EnemySpawner : MonoBehaviour
     public GameObject enemyPrefab;
     public GameObject strongEnemyPrefab;
     public Transform player;
+
     public float spawnRadius = 50f;
-    public float spawnInterval = 2f;
-    public float strongEnemyInterval = 60f;
-    public LayerMask groundLayer; // Assign ground layers in Inspector
+    public float waveInterval = 5f; // Waves spawn every 5 seconds
+    public int maxEnemiesPerWave = 10; // Maximum enemies per wave
+    public LayerMask groundLayer;
+
+    private float spawnBuffer = 0f; // Accumulates over time
+    private bool playerInSafeZone = true; // If true, no spawns happen
+
+    // Cost values for different enemy types
+    private const int normalEnemyCost = 1;
+    private const int strongEnemyCost = 3; // Strong enemies cost more buffer
 
     private void Start()
     {
@@ -17,42 +26,88 @@ public class EnemySpawner : MonoBehaviour
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;
         }
-
-        StartCoroutine(SpawnEnemies());
-        StartCoroutine(SpawnStrongEnemies());
+        StartCoroutine(WaveSpawner());
     }
 
-    private IEnumerator SpawnEnemies()
+    private void Update()
     {
-        while (true)
+        if (!playerInSafeZone)
         {
-            SpawnEnemy(enemyPrefab);
-            yield return new WaitForSeconds(spawnInterval);
+            spawnBuffer += Time.deltaTime; // Buffer increases when outside safe zone
         }
     }
 
-    private IEnumerator SpawnStrongEnemies()
+    private IEnumerator WaveSpawner()
     {
         while (true)
         {
-            yield return new WaitForSeconds(strongEnemyInterval);
-            SpawnEnemy(strongEnemyPrefab);
+            yield return new WaitForSeconds(waveInterval);
+
+            if (!playerInSafeZone) // Only spawn when outside safe zone
+            {
+                SpawnWave();
+            }
         }
+    }
+
+    private void SpawnWave()
+    {
+        float availableBuffer = spawnBuffer; // Copy buffer value for this wave
+        int enemiesSpawned = 0;
+
+        while (availableBuffer > 0 && enemiesSpawned < maxEnemiesPerWave)
+        {
+            GameObject enemyType;
+            int enemyCost;
+
+            if (availableBuffer >= strongEnemyCost && Random.value > 0.7f) // 30% chance for strong enemy if enough buffer
+            {
+                enemyType = strongEnemyPrefab;
+                enemyCost = strongEnemyCost;
+            }
+            else
+            {
+                enemyType = enemyPrefab;
+                enemyCost = normalEnemyCost;
+            }
+
+            // If we can afford this enemy, spawn it
+            if (availableBuffer >= enemyCost)
+            {
+                SpawnEnemy(enemyType);
+                availableBuffer -= enemyCost;
+                enemiesSpawned++;
+            }
+            else
+            {
+                break; // Stop if not enough buffer
+            }
+        }
+
+        spawnBuffer -= (spawnBuffer - availableBuffer); // Deduct spent buffer
     }
 
     private void SpawnEnemy(GameObject enemyType)
     {
-        if (player == null) return;
-
-        Vector3 randomOffset = Random.onUnitSphere * spawnRadius;
-        randomOffset.y = 10f; // Start above the terrain
+        Vector3 randomOffset = Random.insideUnitSphere * spawnRadius;
+        randomOffset.y = 10f; // Start above terrain
         Vector3 spawnPosition = player.position + randomOffset;
 
-        // Raycast downward to find ground
+        // Raycast downward to find the ground
         if (Physics.Raycast(spawnPosition, Vector3.down, out RaycastHit hit, 20f, groundLayer))
         {
-            spawnPosition = hit.point; // Place enemy on the actual surface
+            spawnPosition = hit.point; // Adjust to terrain surface
             Instantiate(enemyType, spawnPosition, Quaternion.identity);
         }
+    }
+
+    public void SetSafeZoneStatus(bool isInside)
+    {
+        if (playerInSafeZone && !isInside) // Leaving safe zone
+        {
+            
+            SpawnWave(); // Immediate enemy spawn upon exit
+        }
+        playerInSafeZone = isInside;
     }
 }
