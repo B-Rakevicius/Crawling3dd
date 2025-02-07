@@ -18,7 +18,7 @@ public class EnemySpawner : MonoBehaviour
 
     // Cost values for different enemy types
     private const int normalEnemyCost = 1;
-    private const int strongEnemyCost = 3; // Strong enemies cost more buffer
+    private const int strongEnemyCost = 3;
 
     private void Start()
     {
@@ -33,7 +33,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (!playerInSafeZone)
         {
-            spawnBuffer += Time.deltaTime; // Buffer increases when outside safe zone
+            spawnBuffer += Time.deltaTime;
         }
     }
 
@@ -43,7 +43,7 @@ public class EnemySpawner : MonoBehaviour
         {
             yield return new WaitForSeconds(waveInterval);
 
-            if (!playerInSafeZone) // Only spawn when outside safe zone
+            if (!playerInSafeZone)
             {
                 SpawnWave();
             }
@@ -52,7 +52,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnWave()
     {
-        float availableBuffer = spawnBuffer; // Copy buffer value for this wave
+        float availableBuffer = spawnBuffer;
         int enemiesSpawned = 0;
 
         while (availableBuffer > 0 && enemiesSpawned < maxEnemiesPerWave)
@@ -60,7 +60,7 @@ public class EnemySpawner : MonoBehaviour
             GameObject enemyType;
             int enemyCost;
 
-            if (availableBuffer >= strongEnemyCost && Random.value > 0.7f) // 30% chance for strong enemy if enough buffer
+            if (availableBuffer >= strongEnemyCost && Random.value > 0.7f)
             {
                 enemyType = strongEnemyPrefab;
                 enemyCost = strongEnemyCost;
@@ -70,7 +70,6 @@ public class EnemySpawner : MonoBehaviour
                 enemyType = enemyPrefab;
                 enemyCost = normalEnemyCost;
             }
-
             // If we can afford this enemy, spawn it
             if (availableBuffer >= enemyCost)
             {
@@ -83,8 +82,7 @@ public class EnemySpawner : MonoBehaviour
                 break; // Stop if not enough buffer
             }
         }
-
-        spawnBuffer -= (spawnBuffer - availableBuffer); // Deduct spent buffer
+        spawnBuffer -= (spawnBuffer - availableBuffer); // Spend buffed
     }
 
     private void SpawnEnemy(GameObject enemyType)

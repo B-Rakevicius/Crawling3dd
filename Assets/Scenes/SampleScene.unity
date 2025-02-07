@@ -488,7 +488,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c1bf30f4c0d378e44a0e40592f72df29, type: 2}
+  - {fileID: 2100000, guid: b41bc00f09778f04e841cd8a87af73f8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -532,7 +532,7 @@ GameObject:
   - component: {fileID: 288738867}
   - component: {fileID: 288738870}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: safezone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -581,7 +581,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 288738865}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -857,6 +857,7 @@ GameObject:
   - component: {fileID: 792680621}
   - component: {fileID: 792680622}
   - component: {fileID: 792680623}
+  - component: {fileID: 792680624}
   m_Layer: 0
   m_Name: MEOWMEOW
   m_TagString: Untagged
@@ -966,6 +967,19 @@ MonoBehaviour:
   lod0Distance: 5
   lod1Distance: 7
   lod2Distance: 8
+--- !u!114 &792680624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792680618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20d7a697ca609df4c806471774d44488, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisnx: {fileID: 1404025636}
 --- !u!1 &942187082
 GameObject:
   m_ObjectHideFlags: 0
@@ -1410,15 +1424,15 @@ MonoBehaviour:
     lastUsedTime: 0
     keybind: 122
   - attackName: bang
-    attackPrefab: {fileID: 8159021608846303681, guid: eb8eb795e0e2bb148a63768472f58218, type: 3}
-    type: 1
+    attackPrefab: {fileID: 5148204143598036164, guid: 13f2d34869361c24d9becf7d8737c2ca, type: 3}
+    type: 2
     cooldown: 2
     lastUsedTime: 0
     keybind: 101
   - attackName: boom
-    attackPrefab: {fileID: 5148204143598036164, guid: 13f2d34869361c24d9becf7d8737c2ca, type: 3}
+    attackPrefab: {fileID: 5148204143598036164, guid: b2db65fb3724e2944bd941ae7d29f7d1, type: 3}
     type: 2
-    cooldown: 3
+    cooldown: 1
     lastUsedTime: 0
     keybind: 114
   - attackName: blammo
@@ -1427,6 +1441,12 @@ MonoBehaviour:
     cooldown: 1
     lastUsedTime: 0
     keybind: 116
+  - attackName: brrr
+    attackPrefab: {fileID: 0}
+    type: 4
+    cooldown: 1
+    lastUsedTime: 0
+    keybind: 121
 --- !u!1 &1313125198
 GameObject:
   m_ObjectHideFlags: 0

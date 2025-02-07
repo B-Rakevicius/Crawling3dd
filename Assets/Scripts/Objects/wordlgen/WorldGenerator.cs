@@ -274,12 +274,12 @@ public class Chunk : MonoBehaviour
         this.material = material;
         this.smoothNormals = smoothNormals;
 
-        const int heightOffset = 20; // Shift terrain generation 10 units higher
+        const int heightOffset = 20;
         int adjustedHeight = height + heightOffset;
 
-        INoise perlin = new PerlinNoise(seed, 1.0f);
-        FractalNoise fractal = new FractalNoise(perlin, 8, 4.5f); // Increased amplitude for higher variation
-        FractalNoise riverNoise = new FractalNoise(new PerlinNoise(seed + 1, 1.0f), 2, 1.0f); // Separate noise for rivers
+        INoise perlin = new PerlinNoise(seed, 1.0f); // perlin
+        FractalNoise fractal = new FractalNoise(perlin, 8, 1.5f); // fractal
+        FractalNoise riverNoise = new FractalNoise(new PerlinNoise(seed + 1, 1.0f), 2, 1.0f); // river
 
         marching = mode == MARCHING_MODE.TETRAHEDRON ? (Marching)new MarchingTertrahedron() : new MarchingCubes();
         marching.Surface = 0.0f;
@@ -290,16 +290,13 @@ public class Chunk : MonoBehaviour
         {
             for (int z = 0; z <= chunkSize; z++)
             {
-                // Normalize global coordinates for noise
                 float globalX = (chunkCoord.x * chunkSize + x) / (float)(chunkSize * 4);
                 float globalZ = (chunkCoord.y * chunkSize + z) / (float)(chunkSize * 4);
 
-                // Amplify mountain height
                 float rawNoise = fractal.Sample2D(globalX, globalZ);
-                float amplifiedNoise = Mathf.Pow(rawNoise, 2.0f) * Mathf.Sign(rawNoise); // Amplify higher highs and lower lows
-                int surfaceHeight = Mathf.FloorToInt((amplifiedNoise + 1.0f) / 2.0f * height) + heightOffset; // Normalize to height range
+                float amplifiedNoise = Mathf.Pow(rawNoise, 2.0f) * Mathf.Sign(rawNoise);
+                int surfaceHeight = Mathf.FloorToInt((amplifiedNoise + 1.0f) / 2.0f * height) + heightOffset; 
 
-                // River depth using separate noise function
                 float riverValue = riverNoise.Sample2D(globalX, globalZ);
                 float riverDepth = Mathf.Lerp(0, 5, Mathf.Clamp01(1 - Mathf.Abs(riverValue))); // Valleys for rivers
 
@@ -323,7 +320,7 @@ public class Chunk : MonoBehaviour
                 int minHeight = Mathf.Max(0, surfaceHeight - Mathf.CeilToInt(riverDepth));
                 for (int y = 0; y <= minHeight; y++)
                 {
-                    voxels[x, y, z] = 1.0f; // Solid base for riverbeds
+                    voxels[x, y, z] = 1.0f;
                 }
             }
         }
@@ -400,7 +397,6 @@ public class Chunk : MonoBehaviour
         int startZ = Mathf.Max(0, Mathf.FloorToInt(localPosition.z - radius));
         int endZ = Mathf.Min(chunkSize - 1, Mathf.CeilToInt(localPosition.z + radius));
 
-        // Modify the voxels within the radius
         for (int x = startX; x <= endX; x++)
         {
             for (int y = startY; y <= endY; y++)
@@ -410,10 +406,9 @@ public class Chunk : MonoBehaviour
                     Vector3 voxelPos = new Vector3(x, y, z);
                     if (Vector3.Distance(voxelPos, localPosition) <= radius)
                     {
-                        // Reduce the voxel's height to simulate mining
-                        if (value < 0) // Negative value for mining/digging
+                        if (value < 0)
                         {
-                            voxels[x, y, z] = Mathf.Max(voxels[x, y, z] + value, 100); // Prevent going below 0
+                            voxels[x, y, z] = Mathf.Max(voxels[x, y, z] + value, 100);
 
                         }
                     }

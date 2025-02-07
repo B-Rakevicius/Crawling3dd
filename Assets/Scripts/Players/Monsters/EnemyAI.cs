@@ -126,6 +126,7 @@ public class EnemyAI : MonoBehaviour
     {
 
         ItemManager.Instance.TryDropLoot(transform.position);
+        PointManager.Instance.Thisnx();
         Destroy(gameObject);
     }
 

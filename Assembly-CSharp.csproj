@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scripts\Objects\wordlgen\cubeTerrainGen.cs" />
     <Compile Include="Assets\Scripts\Players\Weapons\Spell.cs" />
     <Compile Include="Assets\Scripts\Players\PlayerCombat.cs" />
+    <Compile Include="Assets\Scripts\Players\Weapons\Attacks\ColdCircle.cs" />
     <Compile Include="Assets\ProceduralNoise\Noise\FractalNoise.cs" />
     <Compile Include="Assets\Scripts\Objects\ProjectileLaserTrap.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\5- Adding velocities and impulses\Scripts\MyCharacterController.cs" />
@@ -180,6 +181,8 @@
     <Compile Include="Assets\Scripts\Players\tempMiner.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\3- Jumping\Scripts\c- Wall Jumping\MyPlayer.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\8- Creating a moving platform\Scripts\MyMovingPlatform.cs" />
+    <Compile Include="Assets\Scripts\Managers\PointManager.cs" />
+    <Compile Include="Assets\Scripts\Players\Weapons\Attacks\AnvilBonk.cs" />
     <Compile Include="Assets\Scripts\Objects\wordlgen\Marching.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -199,6 +202,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\Resources\Shaders\RadialWavesShader.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
