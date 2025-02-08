@@ -436,6 +436,7 @@
 "Assets/Scripts/Managers/MyController.cs"
 "Assets/Scripts/Managers/PointManager.cs"
 "Assets/Scripts/Managers/RoomDecorator.cs"
+"Assets/Scripts/Managers/ShaderManager.cs"
 "Assets/Scripts/Objects/DungeonGen.cs"
 "Assets/Scripts/Objects/DungeonGenerator.cs"
 "Assets/Scripts/Objects/LaserBeamTrap.cs"

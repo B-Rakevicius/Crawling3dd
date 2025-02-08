@@ -115,6 +115,7 @@
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\2- Basic Movement and Gravity\Scripts\MyPlayer.cs" />
     <Compile Include="Assets\KinematicCharacterController\Core\ReadOnlyAttribute.cs" />
     <Compile Include="Assets\Scripts\Objects\SlowProjectileLaserTrap.cs" />
+    <Compile Include="Assets\Scripts\Managers\ShaderManager.cs" />
     <Compile Include="Assets\ProceduralNoise\Noise\WorleyNoise.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\1- Player Camera Character Setup\Scripts\MyPlayer.cs" />
     <Compile Include="Assets\KinematicCharacterController\Examples\Scripts\BuildManager.cs" />

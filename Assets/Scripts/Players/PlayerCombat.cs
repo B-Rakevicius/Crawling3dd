@@ -63,6 +63,13 @@ public class PlayerCombat : MonoBehaviour
     }
     private void SpawnColdCircle()
     {
+       // GameObject ring = new GameObject("ExpandingRing");
+       // ring.transform.position = gameObject.transform.position;
+       // ring.AddComponent<ExpandingRing>();
+
+        //GameObject ring = new GameObject("ExpandingRingCollider");
+        //ring.AddComponent<ExpandingRingCollider>();
+
         GameObject coldCircle = new GameObject("ColdCircle");
         coldCircle.transform.position = transform.position;
         coldCircle.AddComponent<ColdCircle>();
@@ -151,6 +158,155 @@ public class PlayerCombat : MonoBehaviour
         {
             Debug.Log("Cannot equip more than 5 abilities.");
             return false;
+        }
+    }
+}
+public class ExpandingRing : MonoBehaviour
+{
+    public int segments = 50;
+    public float initialRadius = 0.1f;
+    public float maxRadius = 5f;
+    public float duration = 2f;
+    public float lineWidth = 0.1f;
+    public float damage = 15f;
+    public float knockbackForce = 0f;
+    private LineRenderer lineRenderer;
+    private SphereCollider ringCollider;
+    private float elapsedTime = 0f;
+
+    void Start()
+    {
+        // Line Renderer setup
+        lineRenderer = gameObject.AddComponent<LineRenderer>();
+        lineRenderer.positionCount = segments + 1;
+        lineRenderer.startWidth = lineWidth;
+        lineRenderer.endWidth = lineWidth;
+        lineRenderer.loop = true;
+        lineRenderer.useWorldSpace = true;
+
+        // Collider setup (Squashed)
+        ringCollider = gameObject.AddComponent<SphereCollider>();
+        ringCollider.isTrigger = true;
+        ringCollider.radius = initialRadius;
+        ringCollider.center = new Vector3(0,0,0);
+
+        UpdateRing(initialRadius);
+    }
+    void Update()
+    {
+        if (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / duration;
+            float easedRadius = Mathf.Lerp(initialRadius, maxRadius, EaseOutQuad(t));
+
+            UpdateRing(easedRadius);
+            ringCollider.radius = easedRadius; // Expand collider
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    void UpdateRing(float radius)
+    {
+        for (int i = 0; i <= segments; i++)
+        {
+            float angle = i * (2 * Mathf.PI / segments);
+            Vector3 pos = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * radius;
+            lineRenderer.SetPosition(i, transform.position + pos);
+        }
+    }
+    float EaseOutQuad(float t)
+    {
+        return 1 - (1 - t) * (1 - t);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy")) // Modify to suit your needs
+        {
+            Debug.Log("Hit: " + other.name);
+            EnemyAI enemyAI = other.GetComponent<EnemyAI>();
+            if (enemyAI != null)
+            {
+                Renderer enemyRenderer = other.GetComponent<Renderer>();
+                if (enemyRenderer != null)
+                {
+                    // if renderer maybe render 
+                }
+                Vector3 knockbackDirection = (other.transform.position - transform.position).normalized;
+                enemyAI.TakeDamage((int)damage, knockbackDirection, knockbackForce);
+            }
+        }
+    }
+}
+
+
+public class ExpandingRingSprite : MonoBehaviour
+{
+    public float expansionSpeed = 3f;
+    public float maxSize = 5f;
+    private SpriteRenderer spriteRenderer;
+
+    void Start()
+    {
+        spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
+        spriteRenderer.sprite = Resources.Load<Sprite>("RingSprite"); // Replace with your ring sprite
+        spriteRenderer.color = new Color(1f, 1f, 1f, 0.7f); // Semi-transparent
+        transform.localScale = Vector3.one * 0.5f; // Start small
+    }
+
+    void Update()
+    {
+        if (transform.localScale.x < maxSize)
+        {
+            transform.localScale += Vector3.one * expansionSpeed * Time.deltaTime;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+}
+
+public class ExpandingRingCollider : MonoBehaviour
+{
+    public float expansionSpeed = 3f;
+    public float maxSize = 5f;
+    public int damage = 5;
+    public int knockbackForce = 10;
+
+    private SphereCollider sphereCollider;
+
+    void Start()
+    {
+        sphereCollider = gameObject.AddComponent<SphereCollider>();
+        sphereCollider.isTrigger = true;
+        sphereCollider.radius = 0.1f; // Start small
+    }
+
+    void Update()
+    {
+        if (sphereCollider.radius < maxSize)
+        {
+            sphereCollider.radius += expansionSpeed * Time.deltaTime;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            EnemyAI enemy = other.GetComponent<EnemyAI>();
+            if (enemy != null)
+            {
+                Vector3 knockbackDir = (other.transform.position - transform.position).normalized;
+                enemy.TakeDamage(damage, knockbackDir, knockbackForce);
+            }
         }
     }
 }

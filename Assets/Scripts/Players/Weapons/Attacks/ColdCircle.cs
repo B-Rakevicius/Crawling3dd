@@ -1,134 +1,174 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 
 public class ColdCircle : MonoBehaviour
 {
+    public ParticleSystem coldParticles;
+    public ParticleSystem windParticles;
+    public int damage = 2;
+    public int knockbackForce = 0;
+
+    public SphereCollider sphereCol;
+    public int burstCount = 300;
+    public float initialRadius = 0.1f;
+    private float elapsedTime = 0f;
+    public float duration = 2f;
     public float maxRadius = 5f;
-    public float expansionSpeed = 3f;
-    public float damage = 30f;
-    public float duration = 1.5f;
-    public float height = 0.2f;
-    public LayerMask enemyLayer = 8;
-    public int resolution = 64;
-
-    private MeshFilter meshFilter;
-    private MeshRenderer meshRenderer;
-    private Mesh mesh;
-    private HashSet<GameObject> hitEnemies = new HashSet<GameObject>();
-
     void Start()
     {
-        // Create Mesh Components
-        meshFilter = gameObject.AddComponent<MeshFilter>();
-        meshRenderer = gameObject.AddComponent<MeshRenderer>();
-        meshRenderer.material = CreateColdMaterial(); // Assign procedural shader
-        
-        // Generate the Circle Mesh
-        mesh = new Mesh();
-        meshFilter.mesh = mesh;
-        gameObject.transform.localScale += new Vector3(transform.localScale.x, -transform.localScale.y, transform.localScale.z);
-        //coldCircle.transform.localScale += new Vector3(transform.localScale.x, -transform.localScale.y, transform.localScale.z);
-        GenerateCircleMesh(0.1f);
-
-        StartCoroutine(ExpandAndDestroy());
+        if (coldParticles == null)
+        {
+            coldParticles = CreateColdParticles();
+        }
+        if (windParticles == null)
+        {
+            windParticles = CreateWindParticles();
+        }
+        if (sphereCol == null)
+        {
+            sphereCol = gameObject.AddComponent<SphereCollider>();
+        }
+        sphereCol.isTrigger = true;
+        sphereCol.radius = initialRadius;
+        EmitParticles();
+        StartCoroutine(ExpandEffect());
     }
 
-    private IEnumerator ExpandAndDestroy()
+    void EmitParticles()
     {
-        float elapsedTime = 0f;
-
+        if (coldParticles != null)
+        {
+            coldParticles.Emit(burstCount);
+        }
+        if (windParticles != null)
+        {
+            windParticles.Emit(burstCount / 2);
+        }
+    }
+    IEnumerator ExpandEffect()
+    {
         while (elapsedTime < duration)
         {
-            float newRadius = Mathf.Lerp(0, maxRadius, elapsedTime / duration);
-            transform.localScale = new Vector3(newRadius * 2f, height, newRadius * 2f); // Adjust height
-            GenerateCircleMesh(newRadius);
-
             elapsedTime += Time.deltaTime;
+            float t = elapsedTime / duration;
+            float easedT = EaseOutQuad(t);
+
+            // Expand the sphere collider radius
+            sphereCol.radius = Mathf.Lerp(initialRadius, maxRadius, easedT);
+
+            // Adjust particle systems
+            UpdateParticleSize(easedT);
+
             yield return null;
         }
 
         Destroy(gameObject);
     }
+    private void UpdateParticleSize(float easedT)
+    {
+        var coldShape = coldParticles.shape;
+        coldShape.radius = Mathf.Lerp(0.5f, maxRadius, easedT);
+        var windShape = windParticles.shape;
+        windShape.radius = Mathf.Lerp(0.7f, maxRadius, easedT);
+    }
+    void Update()
+    {
+        if (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / duration;
 
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    float EaseOutQuad(float t)
+    {
+        return 1 - (1 - t) * (1 - t);
+    }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy") && !hitEnemies.Contains(other.gameObject))
+        if (other.CompareTag("Enemy")) 
         {
-            hitEnemies.Add(other.gameObject);
-
             EnemyAI enemyAI = other.GetComponent<EnemyAI>();
             if (enemyAI != null)
             {
-                enemyAI.TakeDamage((int)damage, Vector3.zero, 0f);
+                Renderer enemyRenderer = other.GetComponent<Renderer>();
+                Vector3 knockbackDirection = (enemyAI.transform.position - transform.position).normalized;
+                enemyAI.TakeDamage((int)damage, knockbackDirection, knockbackForce);
+            }
+            Rigidbody rb = other.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                Vector3 direction = other.transform.position - transform.position;
+                direction.y = 0;
+                rb.AddForce(direction.normalized * knockbackForce, ForceMode.Impulse);
             }
         }
     }
-
-    private void GenerateCircleMesh(float radius)
+    private ParticleSystem CreateColdParticles()
     {
-        List<Vector3> vertices = new List<Vector3>();
-        List<int> triangles = new List<int>();
-        List<Vector2> uvs = new List<Vector2>();
+        GameObject particleObj = new GameObject("ColdParticles");
+        particleObj.transform.position = transform.position;
+        particleObj.transform.parent = transform;
 
-        float noiseStrength = 0.1f;
+        ParticleSystem ps = particleObj.AddComponent<ParticleSystem>();
+        ParticleSystemRenderer psRenderer = particleObj.GetComponent<ParticleSystemRenderer>();
+        psRenderer.material = new Material(Shader.Find("Standard"));
 
-        // Top and bottom circles
-        for (int j = 0; j <= 1; j++) // 0 = bottom, 1 = top
-        {
-            float yOffset = j * height; // Raise the top vertices slightly
-            vertices.Add(new Vector3(0, yOffset, 0)); // Center point
-            uvs.Add(new Vector2(0.5f, 0.5f));
+        var main = ps.main;
+        main.startColor = new ParticleSystem.MinMaxGradient(Color.cyan);
+        main.startSize = 0.2f;
+        main.startLifetime = 1.5f;
+        main.simulationSpace = ParticleSystemSimulationSpace.World;
 
-            for (int i = 0; i <= resolution; i++)
-            {
-                float angle = (i / (float)resolution) * Mathf.PI * 2;
-                float x = Mathf.Cos(angle);
-                float y = Mathf.Sin(angle);
-                float noise = Mathf.PerlinNoise(x * 2f, y * 2f) * noiseStrength;
-                Vector3 point = new Vector3(x, yOffset, y) * (radius + noise);
+        var emission = ps.emission;
+        emission.rateOverTime = 0;
 
-                vertices.Add(point);
-                uvs.Add(new Vector2(x * 0.5f + 0.5f, y * 0.5f + 0.5f));
+        var shape = ps.shape;
+        shape.enabled = true;
+        shape.shapeType = ParticleSystemShapeType.Circle;
+        shape.radius = initialRadius;
+        shape.rotation = new Vector3(90, 0, 0);
 
-                if (i > 0)
-                {
-                    int baseIndex = j * (resolution + 2);
-                    triangles.Add(baseIndex);
-                    triangles.Add(baseIndex + i);
-                    triangles.Add(baseIndex + i + 1);
-                }
-            }
-        }
+        var velocity = ps.velocityOverLifetime;
+        velocity.enabled = true;
+        velocity.radial = 1.5f;
 
-        mesh.Clear();
-        mesh.vertices = vertices.ToArray();
-        mesh.triangles = triangles.ToArray();
-        mesh.uv = uvs.ToArray();
-        mesh.RecalculateNormals();
+        return ps;
     }
-
-    private Material CreateColdMaterial()
+    private ParticleSystem CreateWindParticles()
     {
-        Material mat = new Material(Shader.Find("Standard"));
-        mat.SetColor("_Color", new Color(0.5f, 0.8f, 1f, 0.5f));
-        mat.SetFloat("_Glossiness", 0.1f);
-        mat.SetFloat("_Metallic", 0.2f);
+        GameObject particleObj = new GameObject("WindParticles");
+        particleObj.transform.position = transform.position;
+        particleObj.transform.parent = transform;
 
-        Texture2D tex = new Texture2D(256, 256);
-        for (int y = 0; y < tex.height; y++)
-        {
-            for (int x = 0; x < tex.width; x++)
-            {
-                float noise = Mathf.PerlinNoise(x * 0.1f, y * 0.1f);
-                float brightness = Mathf.Lerp(0.2f, 1f, noise);
-                tex.SetPixel(x, y, new Color(0.5f * brightness, 0.8f * brightness, 1f * brightness, 1f));
-            }
-        }
-        tex.Apply();
-        mat.mainTexture = tex;
+        ParticleSystem ps = particleObj.AddComponent<ParticleSystem>();
+        ParticleSystemRenderer psRenderer = particleObj.GetComponent<ParticleSystemRenderer>();
+        psRenderer.material = new Material(Shader.Find("Standard"));
 
-        return mat;
+        var main = ps.main;
+        main.startColor = new ParticleSystem.MinMaxGradient(new Color(0.8f, 0.8f, 1f, 0.5f));
+        main.startSize = 0.3f;
+        main.startLifetime = 1.8f;
+        main.simulationSpace = ParticleSystemSimulationSpace.World;
+
+        var emission = ps.emission;
+        emission.rateOverTime = 0;
+
+        var shape = ps.shape;
+        shape.enabled = true;
+        shape.shapeType = ParticleSystemShapeType.Circle;
+        shape.radius = initialRadius;
+        shape.rotation = new Vector3(90, 0, 0);
+
+        var velocity = ps.velocityOverLifetime;
+        velocity.enabled = true;
+        velocity.radial = 2f;
+        
+        return ps;
     }
 }

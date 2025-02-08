@@ -7,12 +7,15 @@ public class ItemManager : MonoBehaviour
 
     [Header("Loot Drop Chances")]
     public float dropChance = 0.5f; // 50% chance to drop loot
+    public float legendaryChance = 0.001f; // 0.1% chance
+    public float epicChance = 0.04f; // 4% chance
     public float rareChance = 0.1f; // 10% for rare
-    public float uncommonChance = 0.3f; // 30% for uncommon, rest is common
+    public float uncommonChance = 0.3f; // 30% for uncommon, rest is common, 55.9
+
 
     [Header("Item Database")]
     public List<ItemData> allItems = new List<ItemData>();
-
+     
     private Dictionary<string, int> itemStackCounts = new Dictionary<string, int>(); // Tracks item stacking
 
     private void Awake()
