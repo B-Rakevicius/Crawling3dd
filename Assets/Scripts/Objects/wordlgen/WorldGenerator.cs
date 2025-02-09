@@ -6,15 +6,17 @@ using UnityEngine.Rendering;
 using MarchingCubesProject;
 using System.Collections;
 using Unity.VisualScripting;
+using static UnityEngine.UI.Image;
+using Unity.Burst.CompilerServices;
+using static UnityEditor.PlayerSettings;
 public class WorldGenerator : MonoBehaviour
 {
     public Material material;
     public MARCHING_MODE mode = MARCHING_MODE.CUBES;
-
     public int chunkSize = 16; // Size of each chunk
-    public int worldWidth = 4; // Number of chunks in x-direction
-    public int worldHeight = 4; // Number of chunks in z-direction
-    public int height = 32; // Height of the world (in voxels)
+    public int startWidth = 4; // Number of chunks in x-direction
+    public int startLength = 4; // Number of chunks in z-direction
+    public int height = 128; // Height of the world (in voxels)
     public Transform player; 
     private Vector2Int lastPlayerChunk;
     private Queue<Vector2Int> chunkQueue = new Queue<Vector2Int>();
@@ -22,14 +24,10 @@ public class WorldGenerator : MonoBehaviour
     public int viewDistance = 2;
     public int seed = 0;
     public bool smoothNormals = false;
-
     public int lod0Distance = 2; // High resolution
     public int lod1Distance = 4; // Medium resolution
     public int lod2Distance = 6; // Low resolution
-
     private Dictionary<Vector2Int, Chunk> chunks = new Dictionary<Vector2Int, Chunk>();
-
-
     private void Update()
     {
         // Check if the player has moved to a new chunk
@@ -86,7 +84,6 @@ public class WorldGenerator : MonoBehaviour
             yield return null;
         }
     }
-
     /// <summary>
     /// Update the list of active chunks based on the player's position.
     /// </summary>
@@ -107,7 +104,6 @@ public class WorldGenerator : MonoBehaviour
                 }
             }
         }
-
         // Unload chunks outside the view distance
         List<Vector2Int> chunksToRemove = new List<Vector2Int>();
         foreach (var chunkCoord in chunks.Keys)
@@ -191,18 +187,16 @@ public class WorldGenerator : MonoBehaviour
         CreateChunk(lastPlayerChunk);
         StartCoroutine(ChunkUpdater());
     }
-
     private void GenerateWorld()
     {
-        for (int x = 0; x < worldWidth; x++)
+        for (int x = 0; x < startWidth; x++)
         {
-            for (int z = 0; z < worldHeight; z++)
+            for (int z = 0; z < startLength; z++)
             {
                 CreateChunk(new Vector2Int(x, z));
             }
         }
     }
-
     private void CreateChunk(Vector2Int chunkCoord)
     {
         GameObject chunkObject = new GameObject($"Chunk {chunkCoord}");
@@ -213,7 +207,6 @@ public class WorldGenerator : MonoBehaviour
         chunk.Initialize(chunkSize, height, seed, mode, material, smoothNormals, chunkCoord);
         chunks[chunkCoord] = chunk;
     }
-
     public void ModifyTerrain(Vector3 worldPosition, float radius, float value)
     {
         Vector2Int chunkCoord = new Vector2Int(
@@ -232,9 +225,7 @@ public class WorldGenerator : MonoBehaviour
             chunk.ModifyVoxel(localPosition, radius, value);
         }
     }
-
 }
-
 public class Chunk : MonoBehaviour
 {
     private int chunkSize;
@@ -245,28 +236,79 @@ public class Chunk : MonoBehaviour
     private float[,,] voxels;
     private List<GameObject> meshes = new List<GameObject>();
     private Marching marching;
-
     private Dictionary<int, Mesh> lodMeshes = new Dictionary<int, Mesh>();
     private int currentLOD = -1;
     private GameObject meshObject;
-    /*
-    for (int x = 0; x <= chunkSize; x++) 
+    public void Initialize(int chunkSize, int height, int seed, MARCHING_MODE mode, Material material, bool smoothNormals, Vector2Int chunkCoord)
     {
-        for (int y = 0; y < height; y++)
-        {
+        this.chunkSize = chunkSize;
+        this.height = height;
+        this.mode = mode;
+        this.material = material;
+        this.smoothNormals = smoothNormals;
+        const int heightOffset = 0;
+        int adjustedHeight = height + heightOffset + 200; // maxheight +100, +50 had unrendered voxels
+        INoise basePerlin = new PerlinNoise(seed, 1.0f); // Base Perlin Noise
+        FractalNoise fractal = new FractalNoise(basePerlin, 8, 1.5f); // Fractal Terrain
+        FractalNoise riverNoise = new FractalNoise(new PerlinNoise(seed + 1, 1.0f), 2, 1.0f); // River Noise
+        INoise mountainMask = new PerlinNoise(seed + 2, 0.2f); // Mountain noise
+        marching = mode == MARCHING_MODE.TETRAHEDRON ? (Marching)new MarchingTertrahedron() : new MarchingCubes();
+        marching.Surface = 0.0f;
+        voxels = new float[chunkSize + 1, adjustedHeight, chunkSize + 1];
 
+        for (int x = 0; x <= chunkSize; x++)
+        {
             for (int z = 0; z <= chunkSize; z++)
             {
                 float globalX = (chunkCoord.x * chunkSize + x) / (float)(chunkSize * 4);
-                float globalY = y / (float)height;
                 float globalZ = (chunkCoord.y * chunkSize + z) / (float)(chunkSize * 4);
-                voxels[x, y, z] = fractal.Sample3D(globalX, globalY, globalZ);
-            }
 
+                float baseNoise = fractal.Sample2D(globalX, globalZ);
+                float amplifiedNoise = Mathf.Pow(baseNoise, 2.0f) * Mathf.Sign(baseNoise);
+
+                // Generate the Mountain Mask (values between 0 and 1)
+                float mountainFactor = Mathf.Clamp01(mountainMask.Sample2D(globalX, globalZ));
+                
+                // Interpolate between normal terrain and extreme mountains
+                float mountainHeightMultiplier = Mathf.Lerp(1.0f, 3.5f, Mathf.Pow(mountainFactor, 1.0f)); // Exaggerate in high mountain zones
+
+                int surfaceHeight = Mathf.FloorToInt(((amplifiedNoise + 1.0f) / 2.0f * height) * mountainHeightMultiplier) + heightOffset-35;
+
+
+                // River Depth Adjustment
+                float riverValue = riverNoise.Sample2D(globalX, globalZ);
+                float riverDepth = Mathf.Lerp(0, 5, Mathf.Clamp01(1 - Mathf.Abs(riverValue)));
+
+                for (int y = 0; y < adjustedHeight; y++)
+                {
+                    float globalY = y / (float)adjustedHeight;
+
+                    if (y < surfaceHeight - riverDepth)
+                    {
+                        voxels[x, y, z] = 1.0f;
+                    }
+                    else if (y >= surfaceHeight - riverDepth && y <= surfaceHeight)
+                    {
+                        voxels[x, y, z] = 1.0f;
+                    }
+                    else
+                    {
+                        voxels[x, y, z] = -1.0f;
+                    }
+                }
+                int minHeight = Mathf.Max(0, surfaceHeight - Mathf.CeilToInt(riverDepth));
+                for (int y = 0; y < Mathf.Min(minHeight, height); y++)
+                {
+                    if (x >= 0 && x < chunkSize && y >= 0 && y < height && z >= 0 && z < chunkSize)
+                    {
+                        voxels[x, y, z] = 1.0f;
+                    }
+                }
+            }
         }
+        RebuildMesh();
     }
-    */
-    public void Initialize(int chunkSize, int height, int seed, MARCHING_MODE mode, Material material, bool smoothNormals, Vector2Int chunkCoord)
+    public void Initialize2(int chunkSize, int height, int seed, MARCHING_MODE mode, Material material, bool smoothNormals, Vector2Int chunkCoord)
     {
         this.chunkSize = chunkSize;
         this.height = height;
@@ -327,7 +369,6 @@ public class Chunk : MonoBehaviour
 
         RebuildMesh();
     }
-
     public void SetLOD(int lod)
     {
         if (lod == currentLOD) return;
@@ -356,36 +397,6 @@ public class Chunk : MonoBehaviour
         meshObject.GetComponent<MeshCollider>().sharedMesh = mesh;
         meshObject.transform.localPosition = Vector3.zero;
     }
-    /*
-    public void ModifyVoxel(Vector3 localPosition, float radius, float value)
-    {
-        int startX = Mathf.Max(0, Mathf.FloorToInt(localPosition.x - radius));
-        int endX = Mathf.Min(chunkSize - 1, Mathf.CeilToInt(localPosition.x + radius));
-
-        int startY = Mathf.Max(0, Mathf.FloorToInt(localPosition.y - radius));
-        int endY = Mathf.Min(height - 1, Mathf.CeilToInt(localPosition.y + radius));
-
-        int startZ = Mathf.Max(0, Mathf.FloorToInt(localPosition.z - radius));
-        int endZ = Mathf.Min(chunkSize - 1, Mathf.CeilToInt(localPosition.z + radius));
-
-        for (int x = startX; x <= endX; x++)
-        {
-            for (int y = startY; y <= endY; y++)
-            {
-                for (int z = startZ; z <= endZ; z++)
-                {
-                    Vector3 voxelPos = new Vector3(x, y, z);
-                    if (Vector3.Distance(voxelPos, localPosition) <= radius)
-                    {
-                        voxels[x, y, z] += value;
-                    }
-                }
-            }
-        }
-
-        RebuildMesh();
-    }*/
-    
     public void ModifyVoxel(Vector3 localPosition, float radius, float value)
     {
         int startX = Mathf.Max(0, Mathf.FloorToInt(localPosition.x - radius));
@@ -417,26 +428,19 @@ public class Chunk : MonoBehaviour
         }
         RebuildMesh();
     }
-    
     private void RebuildMesh()
     {
         List<Vector3> verts = new List<Vector3>();
         List<int> indices = new List<int>();
-
-        // Generate the mesh using the marching cubes algorithm
         marching.Generate(voxels, verts, indices);
-
-        // Create the Unity mesh
         Mesh mesh = new Mesh
         {
             indexFormat = IndexFormat.UInt32
         };
         mesh.SetVertices(verts);
         mesh.SetTriangles(indices, 0);
-
         mesh.RecalculateNormals();
         mesh.RecalculateBounds();
-        
         if (meshes.Count == 0)
         {
             GameObject meshObject = new GameObject("Mesh");
@@ -444,24 +448,74 @@ public class Chunk : MonoBehaviour
             meshObject.transform.localPosition = new Vector3(0, 0, 0);
             meshObject.tag = "Ground";
             meshObject.layer = 7;
-            //meshObject.transform.position = new Vector3(chunkCoord.x * chunkSize, 0, chunkCoord.y * chunkSize);
-            //meshObject.transform.position = transform.position;
-
             meshObject.AddComponent<MeshFilter>();
             meshObject.AddComponent<MeshRenderer>();
             meshObject.AddComponent<MeshCollider>();
             meshObject.GetComponent<Renderer>().material = material;
-
             meshes.Add(meshObject);
+            //Debug.Log(this + " Highest terrain point " + FindHighestPoint());
         }
-        
-        // Assign the new mesh to the GameObject
+
+
+
         meshes[0].GetComponent<MeshFilter>().mesh = mesh;
         meshes[0].GetComponent<MeshCollider>().sharedMesh = mesh;
+
+        // materials based on height
+        if (FindHighestPoint() > 96)
+        {
+            this.GetComponentInChildren<Renderer>().material = ShaderManager.instance.whiteMountain;
+        }
+        else if (FindHighestPoint() > 48)
+        {
+            this.GetComponentInChildren<Renderer>().material = ShaderManager.instance.grayMountain;
+        }
+        else if (FindHighestPoint() > 32)
+        {
+            this.GetComponentInChildren<Renderer>().material = ShaderManager.instance.rockMountain;
+        }
+        else if (FindHighestPoint() < 16)
+        {
+            this.GetComponentInChildren<Renderer>().material = ShaderManager.instance.grayMountain;
+        }
+        // if high bounds, debug logs the height and the chunk #number
+        if (meshes[0].GetComponent<MeshFilter>().mesh.bounds.size.y > 48)
+        {
+            // high bounds = potential mountain entrance, because extremely steep
+            Debug.Log(this + " this is above 64 " + meshes[0].GetComponent<MeshFilter>().mesh.bounds.size.y);
+        }
+    }
+    private float FindHighestPoint()
+    {
+        float highestY = float.MinValue;
+
+        MeshCollider meshCollider = meshes[0].GetComponent<MeshCollider>();
+
+        if (meshCollider != null)
+        {
+            Vector3 rayOrigin = new Vector3(transform.position.x + chunkSize / 2, height * 2, transform.position.z + chunkSize / 2);
+            Ray ray = new Ray(rayOrigin, Vector3.down);
+            RaycastHit hit;
+
+            if (meshCollider.Raycast(ray, out hit, height * 3))
+            {
+                highestY = hit.point.y;
+                //Debug.Log($"Highest terrain point: {highestY} " + this);
+            }
+            else
+            {
+                //Debug.LogWarning("Raycast did not hit the terrain." + this);
+            }
+        }
+        else
+        {
+            //Debug.LogError("MeshCollider is missing." + this);
+        }
+        return highestY;
     }
     private Mesh GenerateMeshForLOD(int lod)
     {
-        int resolution = chunkSize / (1 << lod); // Reduce resolution for higher LOD
+        int resolution = chunkSize / (1 << lod);
         float[,,] simplifiedVoxels = DownsampleVoxels(voxels, resolution);
 
         List<Vector3> verts = new List<Vector3>();

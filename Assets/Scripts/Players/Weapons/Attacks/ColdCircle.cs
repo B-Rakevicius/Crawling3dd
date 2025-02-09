@@ -53,13 +53,8 @@ public class ColdCircle : MonoBehaviour
             elapsedTime += Time.deltaTime;
             float t = elapsedTime / duration;
             float easedT = EaseOutQuad(t);
-
-            // Expand the sphere collider radius
             sphereCol.radius = Mathf.Lerp(initialRadius, maxRadius, easedT);
-
-            // Adjust particle systems
             UpdateParticleSize(easedT);
-
             yield return null;
         }
 

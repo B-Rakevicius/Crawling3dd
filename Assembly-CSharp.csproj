@@ -58,132 +58,132 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.2f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\KinematicCharacterController\Walkthrough\12- NoClip state\Scripts\MyPlayer.cs" />
     <Compile Include="Assets\ProceduralNoise\Noise\INoise.cs" />
     <Compile Include="Assets\Common\Drawing\BaseRenderer.cs" />
     <Compile Include="Assets\Scripts\Objects\wordlgen\Example.cs" />
-    <Compile Include="Assets\KinematicCharacterController\Core\ICharacterController.cs" />
     <Compile Include="Assets\Scripts\Players\Monster.cs" />
-    <Compile Include="Assets\Common\Drawing\VextexRenderer.cs" />
-    <Compile Include="Assets\KinematicCharacterController\Core\PhysicsMover.cs" />
     <Compile Include="Assets\Scripts\Players\Weapons\Bow.cs" />
     <Compile Include="Assets\KinematicCharacterController\Examples\Scripts\FrameratePanel.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\10- Multiple movement states setup\Scripts\MyCharacterController.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\3- Jumping\Scripts\b- Double Jumping\MyPlayer.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\12- NoClip state\Scripts\MyCharacterController.cs" />
-    <Compile Include="Assets\KinematicCharacterController\Examples\Scripts\StressTestManager.cs" />
-    <Compile Include="Assets\KinematicCharacterController\Walkthrough\6- Crouching\Scripts\MyPlayer.cs" />
-    <Compile Include="Assets\Scripts\Objects\wordlgen\MarchingTertahedron.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\14- Climbing Ladders\Scripts\MyCharacterController.cs" />
     <Compile Include="Assets\Scripts\Objects\DungeonGen.cs" />
-    <Compile Include="Assets\ProceduralNoise\Noise\PermutationTable.cs" />
-    <Compile Include="Assets\Scripts\Objects\DungeonGenerator.cs" />
-    <Compile Include="Assets\KinematicCharacterController\Walkthrough\6- Crouching\Scripts\MyCharacterController.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\9- Custom collision filtering\Scripts\MyPlayer.cs" />
-    <Compile Include="Assets\Scripts\Objects\wordlgen\cellGen.cs" />
     <Compile Include="Assets\Scripts\Objects\wordlgen\cubeTerrainGen.cs" />
-    <Compile Include="Assets\Scripts\Players\Weapons\Spell.cs" />
-    <Compile Include="Assets\Scripts\Players\PlayerCombat.cs" />
     <Compile Include="Assets\Scripts\Players\Weapons\Attacks\ColdCircle.cs" />
     <Compile Include="Assets\ProceduralNoise\Noise\FractalNoise.cs" />
-    <Compile Include="Assets\Scripts\Objects\ProjectileLaserTrap.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\5- Adding velocities and impulses\Scripts\MyCharacterController.cs" />
     <Compile Include="Assets\Common\Drawing\SegmentRenderer.cs" />
     <Compile Include="Assets\Scripts\UI\PostProcessingSwitcher.cs" />
-    <Compile Include="Assets\Scripts\UI\StyleTransition.cs" />
     <Compile Include="Assets\ProceduralNoise\Noise\Noise.cs" />
     <Compile Include="Assets\Scripts\Objects\SummonCircle.cs" />
-    <Compile Include="Assets\KinematicCharacterController\Walkthrough\16- FramePerfect Rotation\Scripts\MyPlayer.cs" />
-    <Compile Include="Assets\KinematicCharacterController\Walkthrough\14- Climbing Ladders\Scripts\MyPlayer.cs" />
     <Compile Include="Assets\Scripts\Players\Monsters\MonsterSpawner.cs" />
-    <Compile Include="Assets\KinematicCharacterController\Examples\Scripts\ExampleMovingPlatform.cs" />
     <Compile Include="Assets\KinematicCharacterController\Core\KinematicCharacterMotor.cs" />
-    <Compile Include="Assets\Scripts\UI\PlayerStyleManager.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\16- FramePerfect Rotation\Scripts\MyCharacterController.cs" />
     <Compile Include="Assets\KinematicCharacterController\ExampleCharacter\Scripts\ExampleCharacterController.cs" />
+    <Compile Include="Assets\Scripts\Players\Monsters\EnemyAI.cs" />
+    <Compile Include="Assets\Scripts\Players\Character.cs" />
+    <Compile Include="Assets\Common\Drawing\NormalRenderer.cs" />
+    <Compile Include="Assets\Scripts\Objects\SlowProjectileLaserTrap.cs" />
+    <Compile Include="Assets\Scripts\Managers\ShaderManager.cs" />
+    <Compile Include="Assets\ProceduralNoise\Noise\WorleyNoise.cs" />
+    <Compile Include="Assets\KinematicCharacterController\Examples\Scripts\BuildManager.cs" />
+    <Compile Include="Assets\KinematicCharacterController\Walkthrough\2- Basic Movement and Gravity\Scripts\MyCharacterController.cs" />
+    <Compile Include="Assets\Scripts\Players\Monsters\EnemySpawner.cs" />
+    <Compile Include="Assets\Scripts\Objects\PiercingLaserTrap.cs" />
+    <Compile Include="Assets\KinematicCharacterController\Examples\Scripts\Teleporter.cs" />
+    <Compile Include="Assets\Scripts\Players\Monsters\AgileHunter.cs" />
+    <Compile Include="Assets\Scripts\Players\Monsters\FireElemental.cs" />
+    <Compile Include="Assets\Scripts\Players\Player.cs" />
+    <Compile Include="Assets\ProceduralNoise\Noise\VoronoiNoise.cs" />
+    <Compile Include="Assets\KinematicCharacterController\Walkthrough\3- Jumping\Scripts\c- Wall Jumping\MyCharacterController.cs" />
+    <Compile Include="Assets\Scripts\Objects\WallCollision.cs" />
+    <Compile Include="Assets\KinematicCharacterController\Core\KCCSettings.cs" />
+    <Compile Include="Assets\KinematicCharacterController\Walkthrough\8- Creating a moving platform\Scripts\MyPlayer.cs" />
+    <Compile Include="Assets\Scripts\Players\Weapons\Attacks\MeleeAttack.cs" />
+    <Compile Include="Assets\KinematicCharacterController\Examples\Scripts\ExampleAIController.cs" />
+    <Compile Include="Assets\Scripts\Players\Weapons\Sword.cs" />
+    <Compile Include="Assets\KinematicCharacterController\Walkthrough\7- Orienting towards arbitrary up direction\Scripts\MyCharacterController.cs" />
+    <Compile Include="Assets\Scripts\Objects\wordlgen\WorldGenerator.cs" />
+    <Compile Include="Assets\KinematicCharacterController\Walkthrough\10- Multiple movement states setup\Scripts\MyPlayer.cs" />
+    <Compile Include="Assets\Scripts\UI\StyleSwitcher.cs" />
+    <Compile Include="Assets\KinematicCharacterController\Walkthrough\4- Landing and leaving ground\Scripts\MyPlayer.cs" />
+    <Compile Include="Assets\KinematicCharacterController\Walkthrough\3- Jumping\Scripts\a- Simple Jumping\MyPlayer.cs" />
+    <Compile Include="Assets\KinematicCharacterController\Walkthrough\15- Root motion example\Scripts\MyPlayer.cs" />
+    <Compile Include="Assets\Scripts\Players\Monsters\BruteMonster.cs" />
+    <Compile Include="Assets\ProceduralNoise\Example.cs" />
+    <Compile Include="Assets\KinematicCharacterController\Examples\Scripts\PlanetManager.cs" />
+    <Compile Include="Assets\KinematicCharacterController\Walkthrough\8- Creating a moving platform\Scripts\MyCharacterController.cs" />
+    <Compile Include="Assets\KinematicCharacterController\Walkthrough\14- Climbing Ladders\Scripts\MyLadder.cs" />
+    <Compile Include="Assets\Scripts\Objects\wordlgen\WaterPlaneFollow.cs" />
+    <Compile Include="Assets\Scripts\Objects\Trap.cs" />
+    <Compile Include="Assets\Scripts\Players\Hero.cs" />
+    <Compile Include="Assets\Scripts\Objects\wordlgen\MarchingCubes.cs" />
+    <Compile Include="Assets\KinematicCharacterController\Core\KinematicCharacterSystem.cs" />
+    <Compile Include="Assets\Scripts\Players\tempMiner.cs" />
+    <Compile Include="Assets\KinematicCharacterController\Walkthrough\3- Jumping\Scripts\c- Wall Jumping\MyPlayer.cs" />
+    <Compile Include="Assets\Scripts\Players\Weapons\Attacks\AnvilBonk.cs" />
+    <Compile Include="Assets\KinematicCharacterController\Walkthrough\12- NoClip state\Scripts\MyPlayer.cs" />
+    <Compile Include="Assets\KinematicCharacterController\Core\ICharacterController.cs" />
+    <Compile Include="Assets\Common\Drawing\VextexRenderer.cs" />
+    <Compile Include="Assets\KinematicCharacterController\Core\PhysicsMover.cs" />
+    <Compile Include="Assets\KinematicCharacterController\Examples\Scripts\StressTestManager.cs" />
+    <Compile Include="Assets\KinematicCharacterController\Walkthrough\6- Crouching\Scripts\MyPlayer.cs" />
+    <Compile Include="Assets\Scripts\Objects\wordlgen\MarchingTertahedron.cs" />
+    <Compile Include="Assets\ProceduralNoise\Noise\PermutationTable.cs" />
+    <Compile Include="Assets\Scripts\Objects\DungeonGenerator.cs" />
+    <Compile Include="Assets\KinematicCharacterController\Walkthrough\6- Crouching\Scripts\MyCharacterController.cs" />
+    <Compile Include="Assets\Scripts\Objects\wordlgen\cellGen.cs" />
+    <Compile Include="Assets\Scripts\Players\Weapons\Spell.cs" />
+    <Compile Include="Assets\Scripts\Players\PlayerCombat.cs" />
+    <Compile Include="Assets\Scripts\Objects\ProjectileLaserTrap.cs" />
+    <Compile Include="Assets\Scripts\UI\StyleTransition.cs" />
+    <Compile Include="Assets\KinematicCharacterController\Walkthrough\16- FramePerfect Rotation\Scripts\MyPlayer.cs" />
+    <Compile Include="Assets\KinematicCharacterController\Walkthrough\14- Climbing Ladders\Scripts\MyPlayer.cs" />
+    <Compile Include="Assets\KinematicCharacterController\Examples\Scripts\ExampleMovingPlatform.cs" />
+    <Compile Include="Assets\Scripts\UI\PlayerStyleManager.cs" />
     <Compile Include="Assets\KinematicCharacterController\Examples\Scripts\PlayableMover.cs" />
     <Compile Include="Assets\Scripts\Managers\RoomDecorator.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\5- Adding velocities and impulses\Scripts\MyPlayer.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\9- Custom collision filtering\Scripts\MyCharacterController.cs" />
-    <Compile Include="Assets\Scripts\Players\Monsters\EnemyAI.cs" />
     <Compile Include="Assets\KinematicCharacterController\Examples\Scripts\PrefabLauncher.cs" />
-    <Compile Include="Assets\Scripts\Players\Character.cs" />
-    <Compile Include="Assets\Common\Drawing\NormalRenderer.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\13- Swimming state\Scripts\MyPlayer.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\4- Landing and leaving ground\Scripts\MyCharacterController.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\3- Jumping\Scripts\a- Simple Jumping\MyCharacterController.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\2- Basic Movement and Gravity\Scripts\MyPlayer.cs" />
     <Compile Include="Assets\KinematicCharacterController\Core\ReadOnlyAttribute.cs" />
-    <Compile Include="Assets\Scripts\Objects\SlowProjectileLaserTrap.cs" />
-    <Compile Include="Assets\Scripts\Managers\ShaderManager.cs" />
-    <Compile Include="Assets\ProceduralNoise\Noise\WorleyNoise.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\1- Player Camera Character Setup\Scripts\MyPlayer.cs" />
-    <Compile Include="Assets\KinematicCharacterController\Examples\Scripts\BuildManager.cs" />
     <Compile Include="Assets\Scripts\Managers\KineCharSystem.cs" />
-    <Compile Include="Assets\KinematicCharacterController\Walkthrough\2- Basic Movement and Gravity\Scripts\MyCharacterController.cs" />
     <Compile Include="Assets\ProceduralNoise\Noise\ValueNoise.cs" />
-    <Compile Include="Assets\Scripts\Players\Monsters\EnemySpawner.cs" />
-    <Compile Include="Assets\Scripts\Objects\PiercingLaserTrap.cs" />
-    <Compile Include="Assets\KinematicCharacterController\Examples\Scripts\Teleporter.cs" />
-    <Compile Include="Assets\Scripts\Players\Monsters\AgileHunter.cs" />
     <Compile Include="Assets\Scripts\Objects\wordlgen\VoxelArray.cs" />
-    <Compile Include="Assets\Scripts\Players\Monsters\FireElemental.cs" />
-    <Compile Include="Assets\Scripts\Players\Player.cs" />
-    <Compile Include="Assets\ProceduralNoise\Noise\VoronoiNoise.cs" />
-    <Compile Include="Assets\KinematicCharacterController\Walkthrough\3- Jumping\Scripts\c- Wall Jumping\MyCharacterController.cs" />
     <Compile Include="Assets\Scripts\Players\Weapons\Attacks\AreaAttack.cs" />
-    <Compile Include="Assets\Scripts\Objects\WallCollision.cs" />
-    <Compile Include="Assets\KinematicCharacterController\Core\KCCSettings.cs" />
-    <Compile Include="Assets\KinematicCharacterController\Walkthrough\8- Creating a moving platform\Scripts\MyPlayer.cs" />
     <Compile Include="Assets\Scripts\Players\Weapons\ShieldSpell.cs" />
     <Compile Include="Assets\KinematicCharacterController\Core\IMoverController.cs" />
-    <Compile Include="Assets\Scripts\Players\Weapons\Attacks\MeleeAttack.cs" />
-    <Compile Include="Assets\KinematicCharacterController\Examples\Scripts\ExampleAIController.cs" />
     <Compile Include="Assets\Scripts\Managers\ItemManager.cs" />
-    <Compile Include="Assets\Scripts\Players\Weapons\Sword.cs" />
     <Compile Include="Assets\Scripts\Managers\KineMotor.cs" />
-    <Compile Include="Assets\KinematicCharacterController\Walkthrough\7- Orienting towards arbitrary up direction\Scripts\MyCharacterController.cs" />
-    <Compile Include="Assets\Scripts\Objects\wordlgen\WorldGenerator.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\3- Jumping\Scripts\b- Double Jumping\MyCharacterController.cs" />
     <Compile Include="Assets\Scripts\Players\Weapons\Attacks\Projectile.cs" />
-    <Compile Include="Assets\KinematicCharacterController\Walkthrough\10- Multiple movement states setup\Scripts\MyPlayer.cs" />
-    <Compile Include="Assets\Scripts\UI\StyleSwitcher.cs" />
     <Compile Include="Assets\Scripts\Players\Ghost.cs" />
     <Compile Include="Assets\Scripts\Players\Weapons\Firespell.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\11- Charging state\Scripts\MyPlayer.cs" />
-    <Compile Include="Assets\KinematicCharacterController\Walkthrough\4- Landing and leaving ground\Scripts\MyPlayer.cs" />
     <Compile Include="Assets\Scripts\Objects\RoomBehaviour.cs" />
     <Compile Include="Assets\Scripts\Objects\SafeZone.cs" />
-    <Compile Include="Assets\KinematicCharacterController\Walkthrough\3- Jumping\Scripts\a- Simple Jumping\MyPlayer.cs" />
-    <Compile Include="Assets\KinematicCharacterController\Walkthrough\15- Root motion example\Scripts\MyPlayer.cs" />
     <Compile Include="Assets\KinematicCharacterController\ExampleCharacter\Scripts\ExampleCharacterCamera.cs" />
     <Compile Include="Assets\Scripts\Objects\LaserBeamTrap.cs" />
-    <Compile Include="Assets\Scripts\Players\Monsters\BruteMonster.cs" />
-    <Compile Include="Assets\ProceduralNoise\Example.cs" />
-    <Compile Include="Assets\KinematicCharacterController\Examples\Scripts\PlanetManager.cs" />
     <Compile Include="Assets\Scripts\Players\Weapons\Weapon.cs" />
     <Compile Include="Assets\Scripts\Objects\SawTrap.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\15- Root motion example\Scripts\MyCharacterController.cs" />
-    <Compile Include="Assets\KinematicCharacterController\Walkthrough\8- Creating a moving platform\Scripts\MyCharacterController.cs" />
     <Compile Include="Assets\ProceduralNoise\Noise\PerlinNoise.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\7- Orienting towards arbitrary up direction\Scripts\MyPlayer.cs" />
-    <Compile Include="Assets\KinematicCharacterController\Walkthrough\14- Climbing Ladders\Scripts\MyLadder.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\13- Swimming state\Scripts\MyCharacterController.cs" />
     <Compile Include="Assets\KinematicCharacterController\ExampleCharacter\Scripts\ExamplePlayer.cs" />
-    <Compile Include="Assets\Scripts\Objects\wordlgen\WaterPlaneFollow.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\1- Player Camera Character Setup\Scripts\MyCharacterController.cs" />
-    <Compile Include="Assets\Scripts\Objects\Trap.cs" />
     <Compile Include="Assets\Scripts\Managers\MyController.cs" />
-    <Compile Include="Assets\Scripts\Players\Hero.cs" />
     <Compile Include="Assets\ProceduralNoise\Noise\SimplexNoise.cs" />
-    <Compile Include="Assets\Scripts\Objects\wordlgen\MarchingCubes.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\11- Charging state\Scripts\MyCharacterController.cs" />
-    <Compile Include="Assets\KinematicCharacterController\Core\KinematicCharacterSystem.cs" />
-    <Compile Include="Assets\Scripts\Players\tempMiner.cs" />
-    <Compile Include="Assets\KinematicCharacterController\Walkthrough\3- Jumping\Scripts\c- Wall Jumping\MyPlayer.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\8- Creating a moving platform\Scripts\MyMovingPlatform.cs" />
     <Compile Include="Assets\Scripts\Managers\PointManager.cs" />
-    <Compile Include="Assets\Scripts\Players\Weapons\Attacks\AnvilBonk.cs" />
     <Compile Include="Assets\Scripts\Objects\wordlgen\Marching.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -833,11 +833,26 @@
     <Reference Include="System.Xml.Serialization">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.2f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.EditorCoroutines.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.VisualEffectGraph.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualEffectGraph.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Postprocessing.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst">
+      <HintPath>Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
     </Reference>
     <Reference Include="Unity.AI.Navigation">
       <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.dll</HintPath>
@@ -848,6 +863,9 @@
     <Reference Include="Unity.VisualScripting.Shared.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.ShaderGraph.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
@@ -857,20 +875,29 @@
     <Reference Include="Unity.VisualScripting.Core">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.VisualScripting.Core.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.Flow">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualEffectGraph.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualEffectGraph.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Flow">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mathematics.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
@@ -878,11 +905,17 @@
     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
       <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.RenderPipelines.HighDefinition.Config.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.HighDefinition.Config.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Performance.Profile-Analyzer.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TestTools.CodeCoverage.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
@@ -902,11 +935,17 @@
     <Reference Include="Unity.VisualScripting.State.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Mathematics">
+      <HintPath>Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Searcher.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.AI.Navigation.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.dll</HintPath>
@@ -917,8 +956,14 @@
     <Reference Include="Unity.AI.Navigation.Editor.ConversionSystem">
       <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.RenderPipelines.HighDefinition.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.HighDefinition.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.HighDefinition.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.HighDefinition.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

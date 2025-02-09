@@ -8,6 +8,7 @@ public class ShaderManager : MonoBehaviour
     public static ShaderManager instance;
     public Shader damageShader;
     public Shader normalShader;
+    public Material whiteMountain, grayMountain, rockMountain, sandWater;
     private void Awake()
     {
         if (instance == null)

@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Lolita\\Desktop\\Crawling3dd\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|c:\\users\\lolita\\desktop\\crawling3dd\\assets\\scripts\\players\\weapons\\attacks\\coldcircle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\players\\weapons\\attacks\\coldcircle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|c:\\users\\lolita\\desktop\\crawling3dd\\assets\\scripts\\players\\monsters\\enemyai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\players\\monsters\\enemyai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|c:\\users\\lolita\\desktop\\crawling3dd\\assets\\scripts\\players\\playercombat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\players\\playercombat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|c:\\users\\lolita\\desktop\\crawling3dd\\assets\\scripts\\players\\weapons\\attacks\\coldcircle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\players\\weapons\\attacks\\coldcircle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|C:\\Users\\Lolita\\Desktop\\Crawling3dd\\assets\\scripts\\players\\weapons\\attacks\\anvilbonk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,12 +19,12 @@
       "RelativeMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\managers\\shadermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|C:\\Users\\Lolita\\Desktop\\Crawling3dd\\assets\\scripts\\players\\monsters\\enemyai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\players\\monsters\\enemyai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|C:\\Users\\Lolita\\Desktop\\Crawling3dd\\assets\\scripts\\managers\\itemmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\managers\\itemmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|C:\\Users\\Lolita\\Desktop\\Crawling3dd\\assets\\scripts\\players\\playercombat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\players\\playercombat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|C:\\Users\\Lolita\\Desktop\\Crawling3dd\\assets\\resources\\shaders\\radialwavesshader.shader||{3B902123-F8A7-4915-9F01-361F908088D0}",
@@ -153,8 +153,8 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 243,
-          "SelectedChildIndex": 4,
+          "DockedWidth": 240,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
@@ -164,7 +164,7 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Managers\\MyController.cs",
               "ToolTip": "C:\\Users\\Lolita\\Desktop\\Crawling3dd\\Assets\\Scripts\\Managers\\MyController.cs",
               "RelativeToolTip": "Assets\\Scripts\\Managers\\MyController.cs",
-              "ViewState": "AgIAAKcAAAAAAAAAAADwv8kAAABQAAAAAAAAAA==",
+              "ViewState": "AgIAAMQAAAAAAAAAAIBZwMkAAABQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-18T15:55:57.384Z",
               "IsPinned": true
@@ -184,43 +184,43 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "ItemManager.cs",
               "DocumentMoniker": "C:\\Users\\Lolita\\Desktop\\Crawling3dd\\Assets\\Scripts\\Managers\\ItemManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Managers\\ItemManager.cs",
               "ToolTip": "C:\\Users\\Lolita\\Desktop\\Crawling3dd\\Assets\\Scripts\\Managers\\ItemManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\Managers\\ItemManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAUwD8AAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-01T19:46:43.207Z",
               "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "EnemyAI.cs",
               "DocumentMoniker": "C:\\Users\\Lolita\\Desktop\\Crawling3dd\\Assets\\Scripts\\Players\\Monsters\\EnemyAI.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Players\\Monsters\\EnemyAI.cs",
               "ToolTip": "C:\\Users\\Lolita\\Desktop\\Crawling3dd\\Assets\\Scripts\\Players\\Monsters\\EnemyAI.cs",
               "RelativeToolTip": "Assets\\Scripts\\Players\\Monsters\\EnemyAI.cs",
-              "ViewState": "AgIAAI8AAAAAAAAAAAAuwLUAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAswIUAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-30T16:38:38.821Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "PlayerCombat.cs",
               "DocumentMoniker": "C:\\Users\\Lolita\\Desktop\\Crawling3dd\\Assets\\Scripts\\Players\\PlayerCombat.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Players\\PlayerCombat.cs",
               "ToolTip": "C:\\Users\\Lolita\\Desktop\\Crawling3dd\\Assets\\Scripts\\Players\\PlayerCombat.cs",
               "RelativeToolTip": "Assets\\Scripts\\Players\\PlayerCombat.cs",
-              "ViewState": "AgIAAKsAAAAAAAAAAAAUwMEAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAACcAAAAAAAAAAAAawEQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-02T11:47:03.838Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -361,7 +361,6 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Objects\\wordlgen\\VoxelTerrain.cs",
               "ToolTip": "C:\\Users\\Lolita\\Desktop\\Crawling3dd\\Assets\\Scripts\\Objects\\wordlgen\\VoxelTerrain.cs",
               "RelativeToolTip": "Assets\\Scripts\\Objects\\wordlgen\\VoxelTerrain.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAQwBMAAABgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-26T19:24:00.427Z"
             },
@@ -559,7 +558,7 @@
           ]
         },
         {
-          "DockedWidth": 157,
+          "DockedWidth": 160,
           "SelectedChildIndex": 1,
           "Children": [
             {
@@ -570,20 +569,20 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Players\\Weapons\\Attacks\\AnvilBonk.cs",
               "ToolTip": "C:\\Users\\Lolita\\Desktop\\Crawling3dd\\Assets\\Scripts\\Players\\Weapons\\Attacks\\AnvilBonk.cs",
               "RelativeToolTip": "Assets\\Scripts\\Players\\Weapons\\Attacks\\AnvilBonk.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwBQAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-05T11:51:52.749Z",
               "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "ColdCircle.cs",
               "DocumentMoniker": "C:\\Users\\Lolita\\Desktop\\Crawling3dd\\Assets\\Scripts\\Players\\Weapons\\Attacks\\ColdCircle.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Players\\Weapons\\Attacks\\ColdCircle.cs",
               "ToolTip": "C:\\Users\\Lolita\\Desktop\\Crawling3dd\\Assets\\Scripts\\Players\\Weapons\\Attacks\\ColdCircle.cs",
               "RelativeToolTip": "Assets\\Scripts\\Players\\Weapons\\Attacks\\ColdCircle.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAIAAAAAAAAAAAAAQwKoAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-05T17:42:58.159Z",
               "EditorCaption": ""

@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Lolita\\Desktop\\Crawling3dd\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|c:\\users\\lolita\\desktop\\crawling3dd\\assets\\scripts\\players\\weapons\\attacks\\coldcircle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\players\\weapons\\attacks\\coldcircle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|C:\\Users\\Lolita\\Desktop\\Crawling3dd\\assets\\scripts\\objects\\wordlgen\\worldgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\objects\\wordlgen\\worldgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|C:\\Users\\Lolita\\Desktop\\Crawling3dd\\assets\\scripts\\managers\\itemmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\managers\\itemmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|C:\\Users\\Lolita\\Desktop\\Crawling3dd\\assets\\scripts\\players\\monsters\\enemyai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|c:\\users\\lolita\\desktop\\crawling3dd\\assets\\scripts\\players\\monsters\\enemyai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\players\\monsters\\enemyai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|c:\\users\\lolita\\desktop\\crawling3dd\\assets\\scripts\\players\\playercombat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\players\\playercombat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|c:\\users\\lolita\\desktop\\crawling3dd\\assets\\scripts\\players\\weapons\\attacks\\coldcircle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\players\\weapons\\attacks\\coldcircle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|C:\\Users\\Lolita\\Desktop\\Crawling3dd\\assets\\scripts\\players\\weapons\\attacks\\anvilbonk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,12 +23,16 @@
       "RelativeMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\managers\\shadermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|C:\\Users\\Lolita\\Desktop\\Crawling3dd\\assets\\resources\\shaders\\radialwavesshader.shader||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|solutionrelative:assets\\resources\\shaders\\radialwavesshader.shader||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|C:\\Users\\Lolita\\Desktop\\Crawling3dd\\assets\\scripts\\managers\\itemmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\managers\\itemmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|C:\\Users\\Lolita\\Desktop\\Crawling3dd\\assets\\scripts\\objects\\wordlgen\\worldgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\objects\\wordlgen\\worldgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|C:\\Users\\Lolita\\Desktop\\Crawling3dd\\assets\\scripts\\players\\playercombat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\players\\playercombat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|C:\\Users\\Lolita\\Desktop\\Crawling3dd\\assets\\resources\\shaders\\radialwavesshader.shader||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|solutionrelative:assets\\resources\\shaders\\radialwavesshader.shader||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CDCB312F-96E0-D925-FD88-1E44A4B3C320}|Assembly-CSharp.csproj|C:\\Users\\Lolita\\Desktop\\Crawling3dd\\assets\\scripts\\objects\\wordlgen\\cellgen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -153,8 +153,8 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 17,
-          "SelectedChildIndex": 2,
+          "DockedWidth": 355,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
@@ -167,8 +167,7 @@
               "ViewState": "AgIAAMQAAAAAAAAAAIBZwMkAAABQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-18T15:55:57.384Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -181,32 +180,30 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAFMAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-26T22:13:24.095Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ItemManager.cs",
+              "DocumentMoniker": "C:\\Users\\Lolita\\Desktop\\Crawling3dd\\Assets\\Scripts\\Managers\\ItemManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Managers\\ItemManager.cs",
+              "ToolTip": "C:\\Users\\Lolita\\Desktop\\Crawling3dd\\Assets\\Scripts\\Managers\\ItemManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Managers\\ItemManager.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAUwD8AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-01T19:46:43.207Z",
+              "IsPinned": true
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ItemManager.cs",
-              "DocumentMoniker": "C:\\Users\\Lolita\\Desktop\\Crawling3dd\\Assets\\Scripts\\Managers\\ItemManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Managers\\ItemManager.cs",
-              "ToolTip": "C:\\Users\\Lolita\\Desktop\\Crawling3dd\\Assets\\Scripts\\Managers\\ItemManager.cs*",
-              "RelativeToolTip": "Assets\\Scripts\\Managers\\ItemManager.cs*",
-              "ViewState": "AgIAABgAAAAAAAAAAAAUwD8AAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-01T19:46:43.207Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "EnemyAI.cs",
               "DocumentMoniker": "C:\\Users\\Lolita\\Desktop\\Crawling3dd\\Assets\\Scripts\\Players\\Monsters\\EnemyAI.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Players\\Monsters\\EnemyAI.cs",
-              "ToolTip": "C:\\Users\\Lolita\\Desktop\\Crawling3dd\\Assets\\Scripts\\Players\\Monsters\\EnemyAI.cs*",
-              "RelativeToolTip": "Assets\\Scripts\\Players\\Monsters\\EnemyAI.cs*",
-              "ViewState": "AgIAAGMAAAAAAAAAAAAAAHMAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Lolita\\Desktop\\Crawling3dd\\Assets\\Scripts\\Players\\Monsters\\EnemyAI.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Players\\Monsters\\EnemyAI.cs",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAswIUAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-30T16:38:38.821Z",
               "IsPinned": true,
@@ -214,7 +211,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "PlayerCombat.cs",
               "DocumentMoniker": "C:\\Users\\Lolita\\Desktop\\Crawling3dd\\Assets\\Scripts\\Players\\PlayerCombat.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Players\\PlayerCombat.cs",
@@ -223,20 +220,19 @@
               "ViewState": "AgIAACcAAAAAAAAAAAAawEQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-02T11:47:03.838Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "RadialWavesShader.shader",
-              "DocumentMoniker": "C:\\Users\\Lolita\\Desktop\\Crawling3dd\\Assets\\Resources\\Shaders\\RadialWavesShader.shader",
-              "RelativeDocumentMoniker": "Assets\\Resources\\Shaders\\RadialWavesShader.shader",
-              "ToolTip": "C:\\Users\\Lolita\\Desktop\\Crawling3dd\\Assets\\Resources\\Shaders\\RadialWavesShader.shader",
-              "RelativeToolTip": "Assets\\Resources\\Shaders\\RadialWavesShader.shader",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAgwCUAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
-              "WhenOpened": "2025-02-05T21:08:46.166Z",
+              "DocumentIndex": 0,
+              "Title": "WorldGenerator.cs",
+              "DocumentMoniker": "C:\\Users\\Lolita\\Desktop\\Crawling3dd\\Assets\\Scripts\\Objects\\wordlgen\\WorldGenerator.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Objects\\wordlgen\\WorldGenerator.cs",
+              "ToolTip": "C:\\Users\\Lolita\\Desktop\\Crawling3dd\\Assets\\Scripts\\Objects\\wordlgen\\WorldGenerator.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Objects\\wordlgen\\WorldGenerator.cs",
+              "ViewState": "AgIAAO0AAAAAAAAAAAArwAABAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-26T22:26:28.509Z",
               "EditorCaption": ""
             },
             {
@@ -249,21 +245,19 @@
               "RelativeToolTip": "Assets\\Scripts\\Managers\\PointManager.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T20:38:53.184Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-05T20:38:53.184Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "WorldGenerator.cs",
-              "DocumentMoniker": "C:\\Users\\Lolita\\Desktop\\Crawling3dd\\Assets\\Scripts\\Objects\\wordlgen\\WorldGenerator.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Objects\\wordlgen\\WorldGenerator.cs",
-              "ToolTip": "C:\\Users\\Lolita\\Desktop\\Crawling3dd\\Assets\\Scripts\\Objects\\wordlgen\\WorldGenerator.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Objects\\wordlgen\\WorldGenerator.cs",
-              "ViewState": "AgIAAKgBAAAAAAAAAAAhwL0BAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-26T22:26:28.509Z",
-              "EditorCaption": ""
+              "Title": "RadialWavesShader.shader",
+              "DocumentMoniker": "C:\\Users\\Lolita\\Desktop\\Crawling3dd\\Assets\\Resources\\Shaders\\RadialWavesShader.shader",
+              "RelativeDocumentMoniker": "Assets\\Resources\\Shaders\\RadialWavesShader.shader",
+              "ToolTip": "C:\\Users\\Lolita\\Desktop\\Crawling3dd\\Assets\\Resources\\Shaders\\RadialWavesShader.shader",
+              "RelativeToolTip": "Assets\\Resources\\Shaders\\RadialWavesShader.shader",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAgwCUAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
+              "WhenOpened": "2025-02-05T21:08:46.166Z"
             },
             {
               "$type": "Document",
@@ -275,8 +269,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Objects\\wordlgen\\cellGen.cs",
               "ViewState": "AgIAAAIAAAAAAAAAAAAQwE4AAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-26T17:42:34.227Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-26T17:42:34.227Z"
             },
             {
               "$type": "Document",
@@ -288,8 +281,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Players\\Weapons\\Attacks\\AreaAttack.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T11:50:19.699Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-05T11:50:19.699Z"
             },
             {
               "$type": "Document",
@@ -301,8 +293,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Players\\Weapons\\Attacks\\Projectile.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-02T11:53:59.933Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-02T11:53:59.933Z"
             },
             {
               "$type": "Document",
@@ -314,8 +305,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Players\\Weapons\\Attacks\\MeleeAttack.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-02T11:52:12.39Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-02T11:52:12.39Z"
             },
             {
               "$type": "Document",
@@ -327,8 +317,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Players\\Monsters\\EnemySpawner.cs",
               "ViewState": "AgIAACwAAAAAAAAAAAAwwD4AAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-30T16:31:31.977Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-30T16:31:31.977Z"
             },
             {
               "$type": "Document",
@@ -340,8 +329,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Players\\tempMiner.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-27T16:45:41.717Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-27T16:45:41.717Z"
             },
             {
               "$type": "Document",
@@ -353,8 +341,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Objects\\SafeZone.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-04T15:15:00.029Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-04T15:15:00.029Z"
             },
             {
               "$type": "Document",
@@ -388,8 +375,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Objects\\wordlgen\\WaterPlaneFollow.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-27T15:34:11.619Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-27T15:34:11.619Z"
             },
             {
               "$type": "Document",
@@ -401,8 +387,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Objects\\wordlgen\\MarchingCubes.cs",
               "ViewState": "AgIAAPUAAAAAAAAAAADgvwYBAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-26T19:55:34.213Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-26T19:55:34.213Z"
             },
             {
               "$type": "Document",
@@ -425,8 +410,7 @@
               "RelativeToolTip": "Assets\\KinematicCharacterController\\Examples\\Scripts\\StressTestManager.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-26T18:09:48.126Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-26T18:09:48.126Z"
             },
             {
               "$type": "Document",
@@ -438,8 +422,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Players\\Ghost.cs",
               "ViewState": "AgIAAFEAAAAAAAAAAAAmwEgAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-26T12:19:56.749Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-26T12:19:56.749Z"
             },
             {
               "$type": "Document",
@@ -451,8 +434,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UI\\PlayerStyleManager.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-26T11:08:07.625Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-26T11:08:07.625Z"
             },
             {
               "$type": "Document",
@@ -464,8 +446,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UI\\StyleTransition.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-26T11:04:40.064Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-26T11:04:40.064Z"
             },
             {
               "$type": "Document",
@@ -477,8 +458,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UI\\PostProcessingSwitcher.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-26T10:58:04.024Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-26T10:58:04.024Z"
             },
             {
               "$type": "Document",
@@ -490,8 +470,7 @@
               "RelativeToolTip": "Assets\\Resources\\Shaders\\hm.shader",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
-              "WhenOpened": "2025-01-24T17:48:02.338Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-24T17:48:02.338Z"
             },
             {
               "$type": "Document",
@@ -503,8 +482,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Objects\\SummonCircle.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-24T12:07:54.343Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-24T12:07:54.343Z"
             },
             {
               "$type": "Document",
@@ -516,8 +494,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Objects\\RoomBehaviour.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-21T10:23:18.096Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-21T10:23:18.096Z"
             },
             {
               "$type": "Document",
@@ -529,8 +506,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Objects\\WallCollision.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-21T10:23:16.819Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-21T10:23:16.819Z"
             },
             {
               "$type": "Document",
@@ -542,8 +518,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Objects\\DungeonGen.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-21T10:23:13.471Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-21T10:23:13.471Z"
             },
             {
               "$type": "Document",
@@ -555,8 +530,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Objects\\DungeonGenerator.cs",
               "ViewState": "AgIAAEAAAAAAAAAAAAAcwFIAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-18T20:39:15.996Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-18T20:39:15.996Z"
             },
             {
               "$type": "Document",
@@ -568,8 +542,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Managers\\RoomDecorator.cs",
               "ViewState": "AgIAACUAAAAAAAAAAAD4v0AAAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-22T15:28:30.653Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-22T15:28:30.653Z"
             },
             {
               "$type": "Document",
@@ -581,54 +554,51 @@
               "RelativeToolTip": "Assets\\Scripts\\Managers\\KineCharSystem.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-21T10:23:00.31Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-21T10:23:00.31Z"
             }
           ]
         },
         {
-          "DockedWidth": 383,
+          "DockedWidth": 45,
           "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "AnvilBonk.cs",
               "DocumentMoniker": "C:\\Users\\Lolita\\Desktop\\Crawling3dd\\Assets\\Scripts\\Players\\Weapons\\Attacks\\AnvilBonk.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Players\\Weapons\\Attacks\\AnvilBonk.cs",
               "ToolTip": "C:\\Users\\Lolita\\Desktop\\Crawling3dd\\Assets\\Scripts\\Players\\Weapons\\Attacks\\AnvilBonk.cs",
               "RelativeToolTip": "Assets\\Scripts\\Players\\Weapons\\Attacks\\AnvilBonk.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABFAAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwBQAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-05T11:51:52.749Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "ColdCircle.cs",
               "DocumentMoniker": "C:\\Users\\Lolita\\Desktop\\Crawling3dd\\Assets\\Scripts\\Players\\Weapons\\Attacks\\ColdCircle.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Players\\Weapons\\Attacks\\ColdCircle.cs",
-              "ToolTip": "C:\\Users\\Lolita\\Desktop\\Crawling3dd\\Assets\\Scripts\\Players\\Weapons\\Attacks\\ColdCircle.cs*",
-              "RelativeToolTip": "Assets\\Scripts\\Players\\Weapons\\Attacks\\ColdCircle.cs*",
-              "ViewState": "AgIAAHEAAAAAAAAAAAAAAHMAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Lolita\\Desktop\\Crawling3dd\\Assets\\Scripts\\Players\\Weapons\\Attacks\\ColdCircle.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Players\\Weapons\\Attacks\\ColdCircle.cs",
+              "ViewState": "AgIAAH4AAAAAAAAAAAAkwKoAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-05T17:42:58.159Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "ShaderManager.cs",
               "DocumentMoniker": "C:\\Users\\Lolita\\Desktop\\Crawling3dd\\Assets\\Scripts\\Managers\\ShaderManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Managers\\ShaderManager.cs",
-              "ToolTip": "C:\\Users\\Lolita\\Desktop\\Crawling3dd\\Assets\\Scripts\\Managers\\ShaderManager.cs*",
-              "RelativeToolTip": "Assets\\Scripts\\Managers\\ShaderManager.cs*",
+              "ToolTip": "C:\\Users\\Lolita\\Desktop\\Crawling3dd\\Assets\\Scripts\\Managers\\ShaderManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Managers\\ShaderManager.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-08T12:48:26.555Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-08T12:48:26.555Z"
             }
           ]
         }

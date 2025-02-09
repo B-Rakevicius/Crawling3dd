@@ -545,7 +545,6 @@ MonoBehaviour:
     m_Bits: 128
   maxHealth: 10
   enemyRenderer: {fileID: 0}
-  hitColor: {r: 1, g: 0, b: 0, a: 1}
   hitFlashDuration: 0.2
   knockbackResistance: 0.5
   commonDrops:
@@ -576,7 +575,7 @@ CharacterController:
   serializedVersion: 3
   m_Height: 1.65
   m_Radius: 0.4
-  m_SlopeLimit: 45
+  m_SlopeLimit: 90
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001

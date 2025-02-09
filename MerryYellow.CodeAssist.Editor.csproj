@@ -60,34 +60,34 @@
   <ItemGroup>
     <Compile Include="Packages\com.merry-yellow.code-assist\Editor\LazyInitializer.cs" />
     <Compile Include="Packages\com.merry-yellow.code-assist\Editor\Input\Text2Yaml.cs" />
-    <Compile Include="Packages\com.merry-yellow.code-assist\Editor\SetupManager.cs" />
     <Compile Include="Packages\com.merry-yellow.code-assist\Editor\Cleanup.cs" />
-    <Compile Include="Packages\com.merry-yellow.code-assist\Editor\Preferences\PreferenceMonitor.cs" />
     <Compile Include="Packages\com.merry-yellow.code-assist\Editor\AnalyzerPostProcessor.cs" />
     <Compile Include="Packages\com.merry-yellow.code-assist\Editor\Logger\LoggerExtensions.cs" />
-    <Compile Include="Packages\com.merry-yellow.code-assist\Editor\Input\Binary2TextExec.cs" />
     <Compile Include="Packages\com.merry-yellow.code-assist\Editor\ScriptFinder.cs" />
     <Compile Include="Packages\com.merry-yellow.code-assist\Editor\UnityEditorShell.cs" />
-    <Compile Include="Packages\com.merry-yellow.code-assist\Editor\EditorCoroutines\EditorWindowCoroutineExtension.cs" />
-    <Compile Include="Packages\com.merry-yellow.code-assist\Editor\Logger\ELogger.cs" />
     <Compile Include="Packages\com.merry-yellow.code-assist\Editor\Input\InputManagerMonitor.cs" />
     <Compile Include="Packages\com.merry-yellow.code-assist\Editor\Input\UnityInputManager.cs" />
-    <Compile Include="Packages\com.merry-yellow.code-assist\Editor\UnityClassExtensions.cs" />
     <Compile Include="Packages\com.merry-yellow.code-assist\Editor\StatusWindow.cs" />
-    <Compile Include="Packages\com.merry-yellow.code-assist\Editor\EditorCoroutines\EditorWaitForSeconds.cs" />
     <Compile Include="Packages\com.merry-yellow.code-assist\Editor\AboutWindow.cs" />
     <Compile Include="Packages\com.merry-yellow.code-assist\Editor\Preferences\PreferenceStorageAccessor.cs" />
     <Compile Include="Packages\com.merry-yellow.code-assist\Editor\MainThreadDispatcher.cs" />
-    <Compile Include="Packages\com.merry-yellow.code-assist\Editor\Logger\CommonTools.cs" />
     <Compile Include="Packages\com.merry-yellow.code-assist\Editor\Monitor.cs" />
     <Compile Include="Packages\com.merry-yellow.code-assist\Editor\EditorCoroutines\EditorCoroutineUtility.cs" />
     <Compile Include="Packages\com.merry-yellow.code-assist\Editor\Assister.cs" />
     <Compile Include="Packages\com.merry-yellow.code-assist\Editor\MQTTnetInitializer.cs" />
     <Compile Include="Packages\com.merry-yellow.code-assist\Editor\Preferences\PreferenceEntryHolder.cs" />
-    <Compile Include="Packages\com.merry-yellow.code-assist\Editor\EditorCoroutines\EditorCoroutine.cs" />
     <Compile Include="Packages\com.merry-yellow.code-assist\Editor\MQTTnetPublisher.cs" />
-    <Compile Include="Packages\com.merry-yellow.code-assist\Editor\FeedbackWindow.cs" />
     <Compile Include="Packages\com.merry-yellow.code-assist\Editor\Logger\UnitySink.cs" />
+    <Compile Include="Packages\com.merry-yellow.code-assist\Editor\SetupManager.cs" />
+    <Compile Include="Packages\com.merry-yellow.code-assist\Editor\Preferences\PreferenceMonitor.cs" />
+    <Compile Include="Packages\com.merry-yellow.code-assist\Editor\Input\Binary2TextExec.cs" />
+    <Compile Include="Packages\com.merry-yellow.code-assist\Editor\EditorCoroutines\EditorWindowCoroutineExtension.cs" />
+    <Compile Include="Packages\com.merry-yellow.code-assist\Editor\Logger\ELogger.cs" />
+    <Compile Include="Packages\com.merry-yellow.code-assist\Editor\UnityClassExtensions.cs" />
+    <Compile Include="Packages\com.merry-yellow.code-assist\Editor\EditorCoroutines\EditorWaitForSeconds.cs" />
+    <Compile Include="Packages\com.merry-yellow.code-assist\Editor\Logger\CommonTools.cs" />
+    <Compile Include="Packages\com.merry-yellow.code-assist\Editor\EditorCoroutines\EditorCoroutine.cs" />
+    <Compile Include="Packages\com.merry-yellow.code-assist\Editor\FeedbackWindow.cs" />
     <Compile Include="Packages\com.merry-yellow.code-assist\Editor\Preferences\RegistryMonitor.cs" />
   </ItemGroup>
   <ItemGroup>
