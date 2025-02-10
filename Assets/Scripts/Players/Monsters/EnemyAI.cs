@@ -84,7 +84,7 @@ public class EnemyAI : MonoBehaviour
 
     public void TakeDamage(int damage, Vector3 hitDirection, float knockbackStrength = 0f)
     {
-        Debug.Log("ow ow ow shit fuck im taking damage over here " + damage);
+        Debug.Log("taking damage here " + damage);
         currentHealth -= damage;
         if (knockbackStrength > 0)
         {
@@ -94,6 +94,7 @@ public class EnemyAI : MonoBehaviour
         if (currentHealth <= 0)
         {
             Die();
+            
         }
         else
         {
@@ -110,7 +111,7 @@ public class EnemyAI : MonoBehaviour
     private void Die()
     {
         ItemManager.Instance.TryDropLoot(transform.position);
-        PointManager.Instance.Thisnx();
+        PointManager.Instance.addSlain();
         Destroy(gameObject.transform.parent.gameObject);
     }
 
@@ -122,7 +123,7 @@ public class EnemyAI : MonoBehaviour
             for (int i = 0; i < renderer.materials.Length; i++)
             {
                 renderer.materials.ElementAt(i).shader = ShaderManager.instance.damageShader;
-                Debug.Log("Buhblunt4");
+                Debug.Log("bubh4");
             }
         }
         yield return new WaitForSeconds(hitFlashDuration);
@@ -131,7 +132,7 @@ public class EnemyAI : MonoBehaviour
             for (int i = 0; i < renderer.materials.Length; i++)
             {
                 renderer.materials.ElementAt(i).shader = ShaderManager.instance.normalShader;
-                Debug.Log("Buhblunt6");
+                Debug.Log("bubh6");
             }
         }
     }

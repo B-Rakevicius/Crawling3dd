@@ -13,10 +13,10 @@ public class WorldGenerator : MonoBehaviour
 {
     public Material material;
     public MARCHING_MODE mode = MARCHING_MODE.CUBES;
-    public int chunkSize = 16; // Size of each chunk
-    public int startWidth = 4; // Number of chunks in x-direction
-    public int startLength = 4; // Number of chunks in z-direction
-    public int height = 128; // Height of the world (in voxels)
+    public int chunkSize = 16; // size of chunk
+    public int startWidth = 4; // number of chunks in x-direction at start
+    public int startLength = 4; // number of chunks in z-direction at start
+    public int height = 128; // height multiplier
     public Transform player; 
     private Vector2Int lastPlayerChunk;
     private Queue<Vector2Int> chunkQueue = new Queue<Vector2Int>();
@@ -72,9 +72,9 @@ public class WorldGenerator : MonoBehaviour
     {
         while (true)
         {
-            int chunksProcessed = 0; // Throttle to avoid excessive workload
+            int chunksProcessed = 0; // Throttle
 
-            while (chunkQueue.Count > 0 && chunksProcessed < 2) // Process 2 chunks per frame
+            while (chunkQueue.Count > 0 && chunksProcessed < 6) // Process 6 chunks per frame
             {
                 Vector2Int chunkCoord = chunkQueue.Dequeue();
                 yield return StartCoroutine(CreateChunkAsync(chunkCoord));
@@ -90,8 +90,6 @@ public class WorldGenerator : MonoBehaviour
     private void UpdateChunks()
     {
         Vector2Int playerChunk = GetChunkCoord(player.position);
-
-        // Load chunks within view distance
         for (int x = -viewDistance; x <= viewDistance; x++)
         {
             for (int z = -viewDistance; z <= viewDistance; z++)
@@ -104,7 +102,7 @@ public class WorldGenerator : MonoBehaviour
                 }
             }
         }
-        // Unload chunks outside the view distance
+        /*
         List<Vector2Int> chunksToRemove = new List<Vector2Int>();
         foreach (var chunkCoord in chunks.Keys)
         {
@@ -119,6 +117,7 @@ public class WorldGenerator : MonoBehaviour
             Destroy(chunks[chunkCoord].gameObject);
             chunks.Remove(chunkCoord);
         }
+        */
     }
     /// <summary>
     /// Dynamically update LOD levels based on player distance.
@@ -265,17 +264,9 @@ public class Chunk : MonoBehaviour
 
                 float baseNoise = fractal.Sample2D(globalX, globalZ);
                 float amplifiedNoise = Mathf.Pow(baseNoise, 2.0f) * Mathf.Sign(baseNoise);
-
-                // Generate the Mountain Mask (values between 0 and 1)
                 float mountainFactor = Mathf.Clamp01(mountainMask.Sample2D(globalX, globalZ));
-                
-                // Interpolate between normal terrain and extreme mountains
-                float mountainHeightMultiplier = Mathf.Lerp(1.0f, 3.5f, Mathf.Pow(mountainFactor, 1.0f)); // Exaggerate in high mountain zones
-
+                float mountainHeightMultiplier = Mathf.Lerp(1.0f, 3.5f, Mathf.Pow(mountainFactor, 1.0f));
                 int surfaceHeight = Mathf.FloorToInt(((amplifiedNoise + 1.0f) / 2.0f * height) * mountainHeightMultiplier) + heightOffset-35;
-
-
-                // River Depth Adjustment
                 float riverValue = riverNoise.Sample2D(globalX, globalZ);
                 float riverDepth = Mathf.Lerp(0, 5, Mathf.Clamp01(1 - Mathf.Abs(riverValue)));
 
@@ -340,7 +331,7 @@ public class Chunk : MonoBehaviour
                 int surfaceHeight = Mathf.FloorToInt((amplifiedNoise + 1.0f) / 2.0f * height) + heightOffset; 
 
                 float riverValue = riverNoise.Sample2D(globalX, globalZ);
-                float riverDepth = Mathf.Lerp(0, 5, Mathf.Clamp01(1 - Mathf.Abs(riverValue))); // Valleys for rivers
+                float riverDepth = Mathf.Lerp(0, 5, Mathf.Clamp01(1 - Mathf.Abs(riverValue)));
 
                 for (int y = 0; y < adjustedHeight; y++)
                 {
@@ -455,35 +446,31 @@ public class Chunk : MonoBehaviour
             meshes.Add(meshObject);
             //Debug.Log(this + " Highest terrain point " + FindHighestPoint());
         }
-
-
-
         meshes[0].GetComponent<MeshFilter>().mesh = mesh;
         meshes[0].GetComponent<MeshCollider>().sharedMesh = mesh;
-
-        // materials based on height
-        if (FindHighestPoint() > 96)
-        {
-            this.GetComponentInChildren<Renderer>().material = ShaderManager.instance.whiteMountain;
-        }
-        else if (FindHighestPoint() > 48)
-        {
-            this.GetComponentInChildren<Renderer>().material = ShaderManager.instance.grayMountain;
-        }
-        else if (FindHighestPoint() > 32)
-        {
-            this.GetComponentInChildren<Renderer>().material = ShaderManager.instance.rockMountain;
-        }
-        else if (FindHighestPoint() < 16)
-        {
-            this.GetComponentInChildren<Renderer>().material = ShaderManager.instance.grayMountain;
-        }
+        ApplyMaterialBasedOnHeight();
         // if high bounds, debug logs the height and the chunk #number
         if (meshes[0].GetComponent<MeshFilter>().mesh.bounds.size.y > 48)
         {
-            // high bounds = potential mountain entrance, because extremely steep
-            Debug.Log(this + " this is above 64 " + meshes[0].GetComponent<MeshFilter>().mesh.bounds.size.y);
+            // setup splitting mesh into four smaller meshes, to correctly apply materials and such
+            Debug.Log(this + " this is above 48 " + meshes[0].GetComponent<MeshFilter>().mesh.bounds.size.y);
         }
+    }
+    private void ApplyMaterialBasedOnHeight()
+    {
+        float highestPoint = FindHighestPoint();
+
+        Renderer renderer = GetComponentInChildren<Renderer>();
+        if (renderer == null) return;
+
+        if (highestPoint > 96)
+            renderer.material = ShaderManager.instance.whiteMountain;
+        else if (highestPoint > 48)
+            renderer.material = ShaderManager.instance.grayMountain;
+        else if (highestPoint > 32)
+            renderer.material = ShaderManager.instance.rockMountain;
+        else if (highestPoint < 16)
+            renderer.material = ShaderManager.instance.grayMountain;
     }
     private float FindHighestPoint()
     {

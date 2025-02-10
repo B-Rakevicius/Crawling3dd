@@ -143,6 +143,7 @@
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\14- Climbing Ladders\Scripts\MyPlayer.cs" />
     <Compile Include="Assets\KinematicCharacterController\Examples\Scripts\ExampleMovingPlatform.cs" />
     <Compile Include="Assets\Scripts\UI\PlayerStyleManager.cs" />
+    <Compile Include="Assets\Scripts\Players\Loot\PickUp.cs" />
     <Compile Include="Assets\KinematicCharacterController\Examples\Scripts\PlayableMover.cs" />
     <Compile Include="Assets\Scripts\Managers\RoomDecorator.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\5- Adding velocities and impulses\Scripts\MyPlayer.cs" />

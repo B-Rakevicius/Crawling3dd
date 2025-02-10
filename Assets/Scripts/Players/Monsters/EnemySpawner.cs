@@ -12,8 +12,8 @@ public class EnemySpawner : MonoBehaviour
     public float waveInterval = 5f; // Waves spawn every 5 seconds
     public int maxEnemiesPerWave = 10; // Maximum enemies per wave
     public LayerMask groundLayer;
-
-    private float spawnBuffer = 0f; // Accumulates over time
+    public int totalEnemies = 1;
+    public float spawnBuffer = 0f; // Accumulates over time
     private bool playerInSafeZone = true; // If true, no spawns happen
 
     // Cost values for different enemy types
@@ -33,7 +33,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (!playerInSafeZone)
         {
-            spawnBuffer += Time.deltaTime;
+            spawnBuffer += Time.deltaTime*2.5f;
         }
     }
 
@@ -55,8 +55,9 @@ public class EnemySpawner : MonoBehaviour
         float availableBuffer = spawnBuffer;
         int enemiesSpawned = 0;
 
-        while (availableBuffer > 0 && enemiesSpawned < maxEnemiesPerWave)
+        while (availableBuffer > 0 && enemiesSpawned < maxEnemiesPerWave && totalEnemies < 100 )
         {
+            availableBuffer = spawnBuffer;
             GameObject enemyType;
             int enemyCost;
 
@@ -73,8 +74,7 @@ public class EnemySpawner : MonoBehaviour
             // If we can afford this enemy, spawn it
             if (availableBuffer >= enemyCost)
             {
-                SpawnEnemy(enemyType);
-                availableBuffer -= enemyCost;
+                SpawnEnemy(enemyType, enemyCost);
                 enemiesSpawned++;
             }
             else
@@ -82,10 +82,10 @@ public class EnemySpawner : MonoBehaviour
                 break; // Stop if not enough buffer
             }
         }
-        spawnBuffer -= (spawnBuffer - availableBuffer); // Spend buffed
+        //spawnBuffer -= (spawnBuffer - availableBuffer); // Spend buffed
     }
 
-    private void SpawnEnemy(GameObject enemyType)
+    private void SpawnEnemy(GameObject enemyType, int enemyCost)
     {
         Vector3 randomOffset = Random.insideUnitSphere * spawnRadius;
         randomOffset.y = 10f; // Start above terrain
@@ -96,6 +96,9 @@ public class EnemySpawner : MonoBehaviour
         {
             spawnPosition = hit.point; // Adjust to terrain surface
             Instantiate(enemyType, spawnPosition, Quaternion.identity);
+
+            spawnBuffer -= enemyCost;
+            totalEnemies++;
         }
     }
 

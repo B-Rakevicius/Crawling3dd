@@ -5,7 +5,7 @@ public class PlayerCombat : MonoBehaviour
 {
     public Transform firePoint;
     public LayerMask enemyLayer;
-
+    public List<Attack> activeAttacks = new List<Attack>();
     [System.Serializable]
     public class Attack
     {
@@ -16,11 +16,7 @@ public class PlayerCombat : MonoBehaviour
         public float lastUsedTime;
         public KeyCode keybind = KeyCode.None;
     }
-
     public enum AttackType { Melee, Ranged, PointAndClick, Ranged2, AoeCircle }
-
-    public List<Attack> activeAttacks = new List<Attack>();
-
     private void Update()
     {
         foreach (var attack in activeAttacks)
@@ -31,7 +27,6 @@ public class PlayerCombat : MonoBehaviour
             }
         }
     }
-
     private void UseAttack(Attack attack)
     {
         if (Time.time < attack.lastUsedTime + attack.cooldown) return;
@@ -145,7 +140,6 @@ public class PlayerCombat : MonoBehaviour
         }
         return false;
     }
-
     public bool AddAttack(Attack newAttack)
     {
         if (activeAttacks.Count < 5)
@@ -236,76 +230,6 @@ public class ExpandingRing : MonoBehaviour
                 }
                 Vector3 knockbackDirection = (other.transform.position - transform.position).normalized;
                 enemyAI.TakeDamage((int)damage, knockbackDirection, knockbackForce);
-            }
-        }
-    }
-}
-
-
-public class ExpandingRingSprite : MonoBehaviour
-{
-    public float expansionSpeed = 3f;
-    public float maxSize = 5f;
-    private SpriteRenderer spriteRenderer;
-
-    void Start()
-    {
-        spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
-        spriteRenderer.sprite = Resources.Load<Sprite>("RingSprite"); // Replace with your ring sprite
-        spriteRenderer.color = new Color(1f, 1f, 1f, 0.7f); // Semi-transparent
-        transform.localScale = Vector3.one * 0.5f; // Start small
-    }
-
-    void Update()
-    {
-        if (transform.localScale.x < maxSize)
-        {
-            transform.localScale += Vector3.one * expansionSpeed * Time.deltaTime;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-}
-
-public class ExpandingRingCollider : MonoBehaviour
-{
-    public float expansionSpeed = 3f;
-    public float maxSize = 5f;
-    public int damage = 5;
-    public int knockbackForce = 10;
-
-    private SphereCollider sphereCollider;
-
-    void Start()
-    {
-        sphereCollider = gameObject.AddComponent<SphereCollider>();
-        sphereCollider.isTrigger = true;
-        sphereCollider.radius = 0.1f; // Start small
-    }
-
-    void Update()
-    {
-        if (sphereCollider.radius < maxSize)
-        {
-            sphereCollider.radius += expansionSpeed * Time.deltaTime;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Enemy"))
-        {
-            EnemyAI enemy = other.GetComponent<EnemyAI>();
-            if (enemy != null)
-            {
-                Vector3 knockbackDir = (other.transform.position - transform.position).normalized;
-                enemy.TakeDamage(damage, knockbackDir, knockbackForce);
             }
         }
     }

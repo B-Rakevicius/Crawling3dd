@@ -34,7 +34,6 @@ public class ColdCircle : MonoBehaviour
         EmitParticles();
         StartCoroutine(ExpandEffect());
     }
-
     void EmitParticles()
     {
         if (coldParticles != null)

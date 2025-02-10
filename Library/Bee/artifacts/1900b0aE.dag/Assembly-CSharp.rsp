@@ -476,6 +476,7 @@
 "Assets/Scripts/Players/Character.cs"
 "Assets/Scripts/Players/Ghost.cs"
 "Assets/Scripts/Players/Hero.cs"
+"Assets/Scripts/Players/Loot/PickUp.cs"
 "Assets/Scripts/Players/Monster.cs"
 "Assets/Scripts/Players/Monsters/AgileHunter.cs"
 "Assets/Scripts/Players/Monsters/BruteMonster.cs"
